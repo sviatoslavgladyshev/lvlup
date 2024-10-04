@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel to JSON Uploader</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+        }
+        #drop-area.highlight {
+            border-color: #2196F3;
+        }
+        #file-input {
+            display: none;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        #result {
+            margin-top: 1rem;
+            text-align: left;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Excel to JSON Uploader</h1>
+        <div id="drop-area">
+            <p>Drag and drop an Excel file here, or click to select a file</p>
+            <input type="file" id="file-input" accept=".xlsx, .xls">
+        </div>
+        <button id="upload-button" disabled>Upload to API</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('file-input');
+        const uploadButton = document.getElementById('upload-button');
+        const resultDiv = document.getElementById('result');
+        let jsonData = null;
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight() {
+            dropArea.classList.add('highlight');
+        }
+
+        function unhighlight() {
+            dropArea.classList.remove('highlight');
+        }
+
+        dropArea.addEventListener('drop', handleDrop, false);
+        fileInput.addEventListener('change', handleFileSelect, false);
+        dropArea.addEventListener('click', () => fileInput.click());
+        uploadButton.addEventListener('click', uploadToAPI);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles(files);
+        }
+
+        function handleFileSelect(e) {
+            const files = e.target.files;
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            const file = files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, {type: 'array'});
+                const firstSheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[firstSheetName];
+                jsonData = XLSX.utils.sheet_to_json(worksheet);
+                resultDiv.textContent = JSON.stringify(jsonData, null, 2);
+                uploadButton.disabled = false;
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        async function uploadToAPI() {
+            if (!jsonData) {
+                alert('Please select an Excel file first.');
+                return;
+            }
+
+            const apiUrl = 'https://xxat64faik.execute-api.us-east-1.amazonaws.com/dev/processLeads';
+            const cognitoId = prompt('Please enter your Cognito ID:');
+            if (!cognitoId) {
+                alert('Cognito ID is required.');
+                return;
+            }
+
+            const payload = {
+                cognito_id: cognitoId,
+                leads: jsonData.map(lead => ({
+                    last: lead.Last || '',
+                    first_name: lead.First || '',
+                    number: lead['#'] || '',
+                    street: lead.St || '',
+                    apartment: lead.Apt || '',
+                    city: lead.City || '',
+                    state: lead.State || '',
+                    zip: lead.Zip || '',
+                    pass1: lead['Pass 1'] || '',
+                    pass2: lead['Pass 2'] || '',
+                    pass3: lead['Pass 3'] || ''
+                }))
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+                }
+
+                const result = await response.json();
+                resultDiv.textContent = JSON.stringify(result, null, 2);
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.textContent = 'Error: ' + error.message;
+                alert('An error occurred. Please check the console for more details.');
+            }
+        }
+    </script>
+</body>
+</html>
