@@ -1,50 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Record Company Data</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Record Company Data</title>
 </head>
 <body>
-    <h1>Record Company Data</h1>
-    <form id="companyForm">
-        <label for="company">Company:</label>
-        <input type="text" id="company" name="company" required><br><br>
+  <h1>Record Company Data</h1>
+  <form id="companyForm">
+    <label for="company">Company:</label>
+    <input type="text" id="company" name="company" required><br><br>
 
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="first_name" required><br><br>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="first_name" required><br><br>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="last_name" required><br><br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="last_name" required><br><br>
 
-        <label for="size">Size:</label>
-        <input type="text" id="size" name="size" required><br><br>
+    <label for="size">Size:</label>
+    <input type="text" id="size" name="size" required><br><br>
 
-        <button type="button" onclick="submitData()">Submit</button>
-    </form>
+    <button type="button" onclick="submitData()">Submit</button>
+  </form>
 
-    <p id="responseMessage"></p>
+  <p id="responseMessage"></p>
 
-    <script>
-        async function submitData() {
-            const formData = {
-                company: document.getElementById("company").value,
-                first_name: document.getElementById("firstName").value,
-                last_name: document.getElementById("lastName").value,
-                size: document.getElementById("size").value
-            };
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const email = localStorage.getItem("userEmail");
+      if (email) {
+        console.log("User email: " + email);
+      }
+    });
 
-            const response = await fetch('https://xlxfqrcvs0.execute-api.us-east-1.amazonaws.com/dev/saveData', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
+    async function submitData() {
+      const formData = {
+        company: document.getElementById("company").value,
+        first_name: document.getElementById("firstName").value,
+        last_name: document.getElementById("lastName").value,
+        size: document.getElementById("size").value
+      };
 
-            const result = await response.json();
-            document.getElementById("responseMessage").textContent = result;
-        }
-    </script>
+      const response = await fetch('https://xlxfqrcvs0.execute-api.us-east-1.amazonaws.com/dev/saveData', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      document.getElementById("responseMessage").textContent = result;
+
+      // Send email upon form submission
+      await fetch('https://your-email-service-endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          to: formData.first_name + " " + formData.last_name,
+          email: localStorage.getItem("userEmail"),
+          subject: "Thank you for joining Alpha",
+          message: "Thank you for signing up with us. We will get in touch soon!"
+        })
+      });
+    }
+  </script>
 </body>
 </html>
