@@ -11,7 +11,7 @@
     body {
       background: linear-gradient(#ffffff, #8a15ff);
       height: 100vh;
-      font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))) + 2px; /* Increased font size */
+      font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))) + 2px;
       font-family: "Inter", sans-serif;
       font-weight: 300;
       overflow: hidden;
@@ -20,13 +20,13 @@
     }
 
     h1 {
-      font-size: 2.7em; /* Increased font size */
+      font-size: 2.7em;
       font-weight: 400;
       margin-bottom: 0.2em;
     }
 
     h2 {
-      font-size: 1.4em; /* Increased font size */
+      font-size: 1.4em;
       font-weight: 300;
     }
 
@@ -70,6 +70,10 @@
       text-align: center;
     }
 
+    .main__title {
+      font-size: 4.2em; /* Increased font size by 10 units */
+    }
+
     .top-right-buttons {
       position: absolute;
       top: 20px;
@@ -79,12 +83,12 @@
     }
 
     .button {
-      padding: 10px 20px;
-      font-size: 1.1em; /* Increased font size */
+      padding: 13px 20px;
+      font-size: 1.1em;
       font-family: "Inter", sans-serif;
       font-weight: 400;
-      color: #8a15ff; /* Text color */
-      background: rgba(138, 21, 255, 0.35); /* Increased transparency */
+      color: #ffffff;
+      background: rgba(138, 21, 255, 0.35);
       border: 2px solid rgba(255, 255, 255, 0.2);
       border-radius: 30px;
       cursor: pointer;
@@ -104,31 +108,30 @@
 
     .email-input {
       padding: 12px;
-      font-size: 1.1em; /* Increased font size */
-      border-radius: 30px; /* Updated border radius to match buttons */
+      font-size: 1.1em;
+      border-radius: 30px;
       border: 2px solid rgba(255, 255, 255, 0.2);
       outline: none;
       font-family: "Inter", sans-serif;
       font-weight: 300;
       margin-right: 10px;
-      width: 100%; /* Make the input take full width on small screens */
-      max-width: 250px; /* Max width for larger screens */
+      width: 100%;
+      max-width: 250px;
     }
 
-    /* Updated styles for the Learn More button */
     .learn-more-button {
-      padding: 12px 24px; /* Increased padding */
-      font-size: 1.2em; /* Increased font size */
-      background: rgba(138, 21, 255, 0.35); /* Restored original background color */
-      color: rgba(255, 255, 255, 0.9); /* Brighter text color */
+      padding: 12px 24px;
+      font-size: 1.2em;
+      background: rgba(138, 21, 255, 0.35);
+      color: rgba(255, 255, 255, 0.9);
       border: 2px solid rgba(255, 255, 255, 0.2);
-      border-radius: 30px; /* Keep the same border radius */
+      border-radius: 30px;
       transition: all 0.3s ease;
-      text-decoration: none; /* Remove underline */
+      text-decoration: none;
     }
 
     .learn-more-button:hover {
-      background: rgba(255, 255, 255, 0.2); /* Hover effect */
+      background: rgba(255, 255, 255, 0.2);
     }
 
     @keyframes gradient-fade {
@@ -141,27 +144,26 @@
       to { transform: translate(-60%, 60%) rotate(360deg); }
     }
 
-    /* Responsive styles */
     @media (max-width: 768px) {
       h1 {
-        font-size: 2.2em; /* Adjust h1 size for mobile */
+        font-size: 2.2em;
       }
 
       h2 {
-        font-size: 1.2em; /* Adjust h2 size for mobile */
+        font-size: 1.2em;
       }
 
       .button {
-        padding: 8px 16px; /* Adjust button padding for mobile */
-        font-size: 1em; /* Adjust button font size for mobile */
+        padding: 8px 16px;
+        font-size: 1em;
       }
 
       .learn-more-button {
-        font-size: 1em; /* Adjust font size for mobile */
+        font-size: 1em;
       }
 
       .email-input {
-        padding: 10px; /* Adjust padding for mobile */
+        padding: 10px;
       }
     }
   </style>
@@ -174,7 +176,7 @@
   <div class="main">
     <div class="main__text-wrapper">
       <h1 class="main__title">Engage Your Sales Team With a Gamified Performance Platform</h1>
-      <h2>Boost engagement for entry level sales reps through a gaming platform where reps can compete, learn, and level up</h2>
+      <h2>Boost engagement for your entry level sales team by enabling them to compete, learn, and level up</h2>
       <div class="button-container">
         <input type="email" placeholder="Enter your email" class="email-input" id="emailInput">
         <a href="./alpha-join/" class="button" onclick="storeEmail()">Learn More</a>
@@ -190,6 +192,7 @@
   </script>
 </body>
 </html>
+
 <!-- 
 
 <!DOCTYPE html>
