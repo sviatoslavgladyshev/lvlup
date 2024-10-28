@@ -4,26 +4,157 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Record Company Data</title>
+  <link rel="icon" href="../images/lvlup_logo.png">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap");
+
+    /* Body styles */
+    body {
+      background: linear-gradient(#ffffff, #8a15ff);
+      height: 100vh;
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
+      color: rgb(63, 7, 91);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin: 10px 0;
+    }
+
+    /* Main container styles */
+    .main {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Gradient animations */
+    .main::before, .main::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(#adadad, #8a15ff);
+      z-index: -3;
+    }
+
+    .main::before {
+      right: 0;
+      bottom: -19px;
+      height: 30em;
+      width: 30em;
+      animation: gradient-fade 8s ease-in-out infinite alternate;
+    }
+
+    .main::after {
+      top: 0;
+      left: 30px;
+      height: 10em;
+      width: 10em;
+      animation: gradient-fade-alt 6s ease-in-out infinite alternate;
+    }
+
+    /* Form and button styling */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      width: 280px;
+    }
+
+    label {
+      font-size: 1.5em; /* Увеличиваем с 1.2em до 1.7em */
+      margin-bottom: 3px;
+    }
+
+
+    input[type="text"] {
+      padding: 8px;
+      font-size: 1em;
+      border-radius: 25px; /* Increased for more rounded look */
+      border: none;
+      outline: none;
+      width: 90%; /* 10% larger in width */
+      color: #333;
+      background-color: rgb(255, 255, 255);
+      text-align: left;
+      height: 32px; /* 10% smaller in height */
+    }
+
+
+    input::placeholder {
+      color: #999999;
+      font-size: 1em;
+      text-align: left; /* Align placeholder text to the left */
+    }
+
+    button {
+      padding: 8px 18px;
+      font-size: 0.9em;
+      font-family: "Inter";
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    #responseMessage {
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+
+    /* Keyframes for animations */
+    @keyframes gradient-fade {
+      from { transform: translate(10%, -10%) rotate(0deg); }
+      to { transform: translate(50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes gradient-fade-alt {
+      from { transform: translate(-20%, 20%) rotate(0deg); }
+      to { transform: translate(-60%, 60%) rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
-  <h1>Record Company Data</h1>
-  <form id="companyForm">
-    <label for="company">Company:</label>
-    <input type="text" id="company" name="company" required><br><br>
+  <div class="main">
+    <div class="form-container">
+      <h1>Record Company Data</h1>
+      <form id="companyForm">
+        <label for="company">Company:</label>
+        <input type="text" id="company" name="company" placeholder="Enter the text" required>
 
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="first_name" required><br><br>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="first_name" placeholder="Enter the text" required>
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="last_name" required><br><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="last_name" placeholder="Enter the text" required>
 
-    <label for="size">Size:</label>
-    <input type="text" id="size" name="size" required><br><br>
+        <label for="size">Size:</label>
+        <input type="text" id="size" name="size" placeholder="Enter the text" required>
 
-    <button type="button" onclick="submitData()">Submit</button>
-  </form>
+        <button type="button" onclick="submitData()">Submit</button>
+      </form>
 
-  <p id="responseMessage"></p>
+      <p id="responseMessage"></p>
+    </div>
+  </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -42,7 +173,6 @@
       };
 
       try {
-        console.log("Submitting data to saveData endpoint...");
         const response = await fetch('https://xlxfqrcvs0.execute-api.us-east-1.amazonaws.com/dev/saveData', {
           method: 'POST',
           headers: {
@@ -51,19 +181,12 @@
           body: JSON.stringify(formData)
         });
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
         const result = await response.json();
         document.getElementById("responseMessage").textContent = result;
-        console.log("Data saved successfully:", result);
-
-        // Clear form fields after successful submission
         document.getElementById("companyForm").reset();
 
-        // Send email upon form submission
-        console.log("Sending email...");
         const emailResponse = await fetch('https://jxcahwdfi1.execute-api.us-east-1.amazonaws.com/dev/sendEmail', {
           method: 'POST',
           headers: {
@@ -73,20 +196,15 @@
             to: formData.first_name + " " + formData.last_name,
             email: localStorage.getItem("userEmail"),
             subject: "Engage Your Sales Team With a Gamified Performance Platform",
-            message: "Boost engagement for entry level sales reps through a gaming platform where reps can compete, learn, and level up"
+            message: "Boost engagement for entry-level sales reps through a gaming platform where reps can compete, learn, and level up"
           })
         });
 
-        if (!emailResponse.ok) {
-          throw new Error(`Email HTTP error! status: ${emailResponse.status} - ${await emailResponse.text()}`);
-        }
+        if (!emailResponse.ok) throw new Error(`Email HTTP error! status: ${emailResponse.status} - ${await emailResponse.text()}`);
 
         console.log("Email sent successfully");
       } catch (error) {
         console.error('Error during submission:', error);
-        if (error.message.includes('Failed to fetch')) {
-          console.error('Possible reasons: CORS issues, incorrect endpoint, or network problems.');
-        }
         document.getElementById("responseMessage").textContent = "There was an error submitting the form. Please try again.";
       }
     }
