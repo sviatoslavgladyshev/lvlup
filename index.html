@@ -9,7 +9,9 @@
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap");
 
     body {
-      background: linear-gradient(#dbbef7, #8a15ff);
+      background: linear-gradient(45deg, #e0d4f4, #bfa3e6, #e4a9cf, #d8c2e5, #af93d0);
+      background-size: 300% 300%;
+      animation: gradientAnimation 15s ease infinite;
       height: 100vh;
       font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))) + 2px;
       font-family: "Inter", sans-serif;
@@ -19,16 +21,20 @@
       text-align: center;
     }
 
-    h1 {
-      font-size: 2.7em;
-      font-weight: 400;
-      margin-bottom: 0.2em;
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    h11 {
+    h1, h11, h2 {
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h11 {
       font-size: 2.7em;
       font-weight: 400;
-      margin-bottom: 0.2em;
     }
 
     h2 {
@@ -43,41 +49,17 @@
       justify-content: center;
       align-items: center;
       position: relative;
-    }
-
-    .main::before, .main::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: linear-gradient(#adadad, #8a15ff);
-      z-index: -3;
-    }
-
-    .main::before {
-      right: 0;
-      bottom: -19px;
-      height: 30em;
-      width: 30em;
-      animation: gradient-fade 8s ease-in-out infinite alternate;
-    }
-
-    .main::after {
-      top: 0;
-      left: 30px;
-      height: 10em;
-      width: 10em;
-      animation: gradient-fade-alt 6s ease-in-out infinite alternate;
+      overflow: hidden;
     }
 
     .main__text-wrapper {
       padding: 2em;
-      position: relative;
-      z-index: 2;
+      z-index: 1;
       text-align: center;
     }
 
     .main__title {
-      font-size: 4.2em; /* Increased font size by 10 units */
+      font-size: 4.2em;
     }
 
     .top-right-buttons {
@@ -101,7 +83,6 @@
       cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: none;
-      
     }
 
     .button:hover {
@@ -143,22 +124,8 @@
       background: rgba(255, 255, 255, 0.2);
     }
 
-    @keyframes gradient-fade {
-      from { transform: translate(10%, -10%) rotate(0deg); }
-      to { transform: translate(50%, -50%) rotate(360deg); }
-    }
-
-    @keyframes gradient-fade-alt {
-      from { transform: translate(-20%, 20%) rotate(0deg); }
-      to { transform: translate(-60%, 60%) rotate(360deg); }
-    }
-
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.2em;
-      }
-
-      h11 {
+      h1, h11 {
         font-size: 2.2em;
       }
 
@@ -188,12 +155,12 @@
   </div>
   <div class="main">
     <div class="main__text-wrapper">
-      <h1 class="main__title">Engage Your Sales Team With a</h1>
-      <h11 class="main__title">Gamified Performance Platform</h11>
+      <h1 class="main__title">Performance management</h1>
+      <h11 class="main__title">to upgrade your workforce</h11>
       <h2 style="margin-top: 1em; font-size: 1.7em;">
-        Boost engagement for GenZ sales reps by enabling them to compete, learn, and level up
+        AI-powered software that gamifies work to drive productivity and engagement at scale
       </h2>
-        <div class="button-container">
+      <div class="button-container">
         <input type="email" placeholder="Enter your email" class="email-input" id="emailInput">
         <a href="./alpha-join/" class="button learn-more-button" onclick="storeEmail()" style="color: white;">Learn More</a>
       </div>
@@ -208,6 +175,8 @@
   </script>
 </body>
 </html>
+
+
 
 <!-- 
 
