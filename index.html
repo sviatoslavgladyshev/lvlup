@@ -7,12 +7,13 @@
   <link rel="icon" href="../images/lvlup_logo.png">
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
 
     /* Gradient background for the entire page */
     body {
       background: linear-gradient(45deg, #e0d4f4, #bfa3e6, #e4a9cf, #d8c2e5, #af93d0);
-      background-size: 300% 300%;
-      animation: gradientAnimation 15s ease infinite;
+      background-size: 800% 800%; /* Smooth gradient effect */
+      animation: gradientAnimation 30s ease infinite;
       height: 100vh;
       font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))) + 2px;
       font-family: "Inter", sans-serif;
@@ -20,7 +21,7 @@
       overflow: hidden;
       color: white;
       text-align: center;
-      position: relative; /* Make body a containing block for absolute positioning */
+      position: relative;
     }
 
     /* Animation for gradient background */
@@ -47,50 +48,36 @@
       }
     }
 
-    body {
-      background: linear-gradient(45deg, #e0d4f4, #bfa3e6, #e4a9cf, #d8c2e5, #af93d0);
-      background-size: 800% 800%; /* Increase the background size for smoother transitions */
-      animation: gradientAnimation 30s ease infinite; /* Slow animation speed with a seamless loop */
-      height: 100vh;
-      font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))) + 2px;
-      font-family: "Inter", sans-serif;
-      font-weight: 300;
-      overflow: hidden;
-      color: white;
-      text-align: center;
-      position: relative;
-    }
-
-
-
     /* White overlay layer covering half of the screen with a sloping edge */
     .overlay-half {
       position: absolute;
       top: 50vh;
       left: 0;
       width: 100%;
-      height: 70vh; /* Увеличиваем высоту, чтобы нижняя часть ушла за пределы экрана */
-      background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+      height: 70vh; /* Increases height */
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
       z-index: 1;
-      transform: skewY(-10deg) translateY(20%); /* Оставляем верхний левый угол на месте */
+      transform: skewY(-10deg) translateY(20%); /* Keeps the upper left corner in place */
     }
-
 
     /* Content styles */
-    h1, h11, h2 {
+    h1, h2 {
       margin: 0;
       padding: 0;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* More prominent shadow for better readability */
       text-align: left; /* Align text to the left */
+      letter-spacing: 1px; /* Slight letter spacing */
     }
 
-    h1, h11 {
-      font-size: 2.7em;
-      font-weight: 400;
+    /* Larger, bolder, more stylish font for main title */
+    h1 {
+      font-size: 4.5em;
+      font-weight: 700; /* Bold weight */
+      font-family: "Poppins", sans-serif;
     }
 
     h2 {
-      font-size: 1.4em;
+      font-size: 1.7em;
       font-weight: 300;
     }
 
@@ -99,20 +86,16 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start; /* Align content to the left */
-      padding-left: 5%; /* Add padding to the left for spacing */
+      align-items: flex-start;
+      padding-left: 5%;
       position: relative;
-      z-index: 2; /* Place content above the overlay */
+      z-index: 2; /* Ensures the content is above the overlay */
     }
 
     .main__text-wrapper {
       padding: 2em;
       z-index: 2;
-      text-align: left; /* Ensure text is aligned left */
-    }
-
-    .main__title {
-      font-size: 4.2em;
+      text-align: left;
     }
 
     .top-right-buttons {
@@ -147,7 +130,7 @@
     .button-container {
       margin-top: 2em;
       z-index: 10;
-      text-align: left; /* Align buttons and input to the left */
+      text-align: left;
     }
 
     .email-input {
@@ -179,12 +162,12 @@
     }
 
     @media (max-width: 768px) {
-      h1, h11 {
-        font-size: 2.2em;
+      h1 {
+        font-size: 3.5em;
       }
 
       h2 {
-        font-size: 1.2em;
+        font-size: 1.4em;
       }
 
       .button {
@@ -213,9 +196,11 @@
 
   <div class="main">
     <div class="main__text-wrapper">
-      <h1 class="main__title">Performance management</h1>
-      <h11 class="main__title">to upgrade your workforce</h11>
-      <h2 style="margin-top: 1em; font-size: 1.7em;">
+      <h1 class="main__title" style="margin-bottom: 0.1em;">Performance</h1>
+        <h1 class="main__title" style="margin-bottom: 0.1em;">management</h1>
+        <h1 class="main__title" style="margin-bottom: 0.1em;">to upgrade your</h1>
+        <h1 class="main__title" style="margin-bottom: 0.1em;">workforce</h1>
+        <h2 style="margin-top: 1em; font-size: 1.7em;">
         AI powered software to engage and develop your workforce at scale
       </h2>
       <div class="button-container">
@@ -233,6 +218,7 @@
   </script>
 </body>
 </html>
+
 
 <!-- 
 
@@ -599,38 +585,4 @@ h2 {
     </svg>
   </div>
   <div class="arrow arrow--bottom">
-    <svg xmlns="http://www.w3.org/2000/svg" width="31.35" height="649.9" overflow="visible">
-      <style>
-        .geo-arrow {
-          fill: none;
-          stroke: #fff;
-          stroke-width: 2;
-          stroke-miterlimit: 10
-        }
-      </style>
-      <g class="item-to bounce-1">
-        <circle class="geo-arrow item-to bounce-3" cx="15.5" cy="580.36" r="7.96" />
-        <circle class="geo-arrow draw-in" cx="15.5" cy="610.4" r="7.96" />
-        <circle class="geo-arrow item-to bounce-2" cx="15.5" cy="640.44" r="7.96" />
-        <g class="item-to bounce-2">
-          <path class="geo-arrow draw-in" d="M28.94 30.4l-13.26-27-13.27 27zM15.68 5.4v552" />
-        </g>
-      </g>
-    </svg>
-  </div>
-  <div class="main">
-    <div class="main__text-wrapper">
-    <h1 class="main__title">LevelUp</h1>
-    <h2>Employers</h2>
-    <div class="button-container">
-        <a href="login/" class="button">Sign In</a>
-        <a href="signup/" class="button">Sign Up</a>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" class="dotted-circle" width="352" height="352" overflow="visible">
-  <circle cx="176" cy="176" r="174" fill="none" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="12.921,11.9271"/>
-</svg>
-    </div>
-  </div>
-  
-</body>
-</html> -->
+    <svg xmlns="http://www.w3.o
