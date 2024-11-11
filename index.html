@@ -67,10 +67,12 @@
     .image {
       top: 16vh;
       right: 16%;
+      z-index: 6;
     }
     .image-2 {
       top: 13vh;
       right: 5%;
+      z-index: 5;
     }
     .image-4 {
       width: 30vw; /* Adjusted size for better fit on smaller screens */
@@ -176,109 +178,102 @@
     }
 
     /* Mobile-responsive adjustments */
-    /* Mobile-responsive adjustments */
-/* Mobile-responsive adjustments */
-/* Mobile-responsive adjustments */
-/* Mobile-responsive adjustments */
-/* Mobile-responsive adjustments */
-@media (max-width: 768px) {
-  /* Adjust font sizes for mobile */
-  .main__title {
-    font-size: 2.25em; /* Reduce font size to half for mobile */
-    text-align: left; /* Align text to the left */
-    line-height: 1.2; /* Adjust line-height for readability */
-    margin-left: 0; /* Remove left margin */
-    margin-top: 20px; /* Add space at the top to lower the title */
-  }
+    @media (max-width: 768px) {
+      /* Adjust font sizes for mobile */
+      .main__title {
+        font-size: 2.25em; /* Reduce font size to half for mobile */
+        text-align: left; /* Align text to the left */
+        line-height: 1.2; /* Adjust line-height for readability */
+        margin-left: 0; /* Remove left margin */
+        margin-top: 20px; /* Add space at the top to lower the title */
+      }
 
-  h2 {
-    font-size: 1.15em; /* Reduce subtitle font size by half for mobile */
-    text-align: left; /* Align subtitle to the left */
-    margin-left: 0; /* Align subtitle to the left */
-    line-height: 1.5; /* Maintain proper line height */
-    margin-top: 15px; /* Space above the subtitles */
-  }
+      h2 {
+        font-size: 1.15em; /* Reduce subtitle font size by half for mobile */
+        text-align: left; /* Align subtitle to the left */
+        margin-left: 0; /* Align subtitle to the left */
+        line-height: 1.5; /* Maintain proper line height */
+        margin-top: 15px; /* Space above the subtitles */
+      }
 
-  /* Adjust text content and alignment */
-  .main__text-wrapper {
-    padding: 1.5em; /* Less padding for mobile screens */
-    text-align: left; /* Align text to the left */
-    z-index: 2;
-    margin-left: 0; /* No left margin, to align text with the edge */
-    margin-top: 20px; /* Add space above the text wrapper */
-  }
+      /* Adjust text content and alignment */
+      .main__text-wrapper {
+        padding: 1.5em; /* Less padding for mobile screens */
+        text-align: left; /* Align text to the left */
+        z-index: 2;
+        margin-left: 0; /* No left margin, to align text with the edge */
+        margin-top: 20px; /* Add space above the text wrapper */
+      }
 
-  /* Allow the body to scroll */
-  body {
-    min-height: 100%; /* Ensure the body stretches to full height */
-    overflow-y: auto; /* Allow vertical scrolling */
-  }
+      /* Allow the body to scroll */
+      body {
+        min-height: 100%; /* Ensure the body stretches to full height */
+        overflow-y: auto; /* Allow vertical scrolling */
+      }
 
-  /* Main container no longer has a fixed height */
-  .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Let content flow naturally */
-    align-items: center; /* Center align all content horizontally */
-    padding-left: 0;
-    z-index: 2; /* Ensures the content is above the overlay */
-    margin-bottom: 20px; /* Add space at the bottom for scrolling */
-    margin-top: 30px; /* Add space at the top to lower all content */
-  }
+      /* Main container no longer has a fixed height */
+      .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Let content flow naturally */
+        align-items: center; /* Center align all content horizontally */
+        padding-left: 0;
+        z-index: 2; /* Ensures the content is above the overlay */
+        margin-bottom: 20px; /* Add space at the bottom for scrolling */
+        margin-top: 30px; /* Add space at the top to lower all content */
+      }
 
-  /* Align images vertically on mobile */
-  .image, .image-2, .image-4 {
-    width: 60vw; /* Double image sizes for title.png and game.png */
-    max-width: 240px;
-    position: static; /* Stack images vertically on mobile */
-    margin: 1.5em auto; /* Center images with some space */
-  }
+      /* Align images vertically on mobile */
+      .image, .image-2, .image-4 {
+        width: 60vw; /* Double image sizes for title.png and game.png */
+        max-width: 240px;
+        position: static; /* Stack images vertically on mobile */
+        margin: 1.5em auto; /* Center images with some space */
+      }
 
-  /* Adjust email input field */
-  .email-input {
-    width: 80%; /* Reduce width */
-    max-width: 250px; /* Max width for consistency */
-    margin: 1em 0; /* Space between input field and button */
-    text-align: left; /* Align the text inside the input field to the left */
-  }
+      /* Adjust email input field */
+      .email-input {
+        width: 60%; /* Reduce width */
+        max-width: 180px; /* Max width for consistency */
+        margin-right: 1em; /* Space between input field and button */
+        margin-bottom: 0; /* Remove extra space below input */
+        text-align: left; /* Align the text inside the input field to the left */
+      }
 
-  /* Button adjustments */
-  .learn-more-button {
-    width: 60%; /* Reduce the button width */
-    max-width: 180px; /* Ensure the button has a max size */
-    margin-top: 1.5em; /* Space between input and button */
-    display: inline-block; /* Center the button under the input */
-    text-align: center; /* Center button text */
-    margin-left: 0; /* Align the button to the left */
-  }
+      .learn-more-button {
+        width: 30%; /* Reduce the button width */
+        max-width: 120px; /* Ensure the button has a max size */
+        margin-top: 0; /* Remove space between input and button */
+        display: inline-block; /* Keep button on the same line */
+        text-align: center; /* Center button text */
+      }
 
-  /* Mobile layout for the overlay */
-  .overlay-half {
-    height: 50vh; /* Reduce overlay height */
-    transform: skewY(-10deg) translateY(30%); /* Adjust skew for smaller screens */
-  }
+      /* Mobile layout for the overlay */
+      .overlay-half {
+        height: 50vh; /* Reduce overlay height */
+        transform: skewY(-10deg) translateY(30%); /* Adjust skew for smaller screens */
+      }
 
-  /* Move LVLUP Logo to the top left corner */
-  .image-4 {
-      width: 40vw;
-      max-width: 140px;
-      position: absolute;
-      top: -0.8vh;
-      left: 0.5%;
-      z-index: 3;
-      border-radius: 50px;
+      /* Move LVLUP Logo to the top left corner */
+      .image-4 {
+        position: absolute;
+        top: 1vh; /* Raised logo by 1vh */
+        left: 0;
+        width: 60px; /* Adjust size */
+        max-width: 60px; /* Limit max width */
+        z-index: 3; /* Ensure it's above other content */
+        border-radius: 0; /* Remove border radius for a clean corner */
+        margin: 10px; /* Add some margin for spacing */
+      }
+
+      /* Reduce indentation between images */
+      .image, .image-2 {
+        position: static;
+        margin-top: 1.5em; /* Add spacing above the images */
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
-
-  /* Center the other images */
-  .image, .image-2 {
-    position: static;
-    margin-top: 1.5em; /* Add spacing above the images */
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-
 
   </style>
 </head>
@@ -314,6 +309,7 @@
   </script>
 </body>
 </html>
+
 
 
 
