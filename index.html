@@ -176,25 +176,32 @@
     }
 
     /* Mobile-responsive adjustments */
-    @media (max-width: 768px) {
-  /* Center the text on mobile */
+    /* Mobile-responsive adjustments */
+@media (max-width: 768px) {
+  /* Adjusting font sizes for mobile */
   .main__title {
-    font-size: 3em; /* Adjust font size for mobile */
-    text-align: center; /* Center the text */
-    line-height: 1.2;
+    font-size: 2.5em; /* Reduce font size for mobile */
+    text-align: left; /* Align text to the left */
+    line-height: 1.2; /* Adjust line-height for readability */
+    margin-left: 10%; /* Slight left margin for better placement */
   }
 
   h2 {
-    font-size: 1.3em; /* Adjust subtitle font size */
-    text-align: center; /* Center subtitle text */
+    font-size: 1.3em; /* Adjust subtitle font size for mobile */
+    text-align: left; /* Align subtitle text to the left */
+    margin-left: 10%; /* Align subtitle to the left */
+    line-height: 1.5; /* Maintain proper line height */
   }
 
+  /* Center the text content and align it left */
   .main__text-wrapper {
     padding: 1.5em; /* Less padding for mobile screens */
-    text-align: center; /* Center the text content */
+    text-align: left; /* Align text to the left */
     z-index: 2;
+    margin-left: 5%; /* Left margin for consistent alignment */
   }
 
+  /* Align images vertically on mobile */
   .image, .image-2, .image-4 {
     width: 30vw; /* Adjust image sizes */
     max-width: 120px;
@@ -202,27 +209,30 @@
     margin: 1.5em auto; /* Center images with some space */
   }
 
-  /* Email input field adjustments */
+  /* Adjust email input field */
   .email-input {
-    width: 80%; /* Reduce the width to make it smaller */
-    max-width: 200px; /* Set a max width for better consistency */
-    margin: 1em auto; /* Center the input field */
+    width: 80%; /* Reduce width */
+    max-width: 250px; /* Max width for consistency */
+    margin: 1em 0; /* Space between input field and button */
+    text-align: left; /* Align the text inside the input field to the left */
   }
 
   /* Button adjustments */
   .learn-more-button {
     width: 80%; /* Make the button the same width as the input */
-    max-width: 200px; /* Ensure it's not too large */
+    max-width: 250px; /* Ensure button is not too large */
     margin-top: 1em; /* Space between input and button */
     display: inline-block; /* Center the button under the input */
+    text-align: left; /* Align button text to the left */
   }
 
   /* Mobile layout for the overlay */
   .overlay-half {
-    height: 50vh; /* Reduce the overlay height */
+    height: 50vh; /* Reduce overlay height */
     transform: skewY(-10deg) translateY(30%); /* Adjust skew for smaller screens */
   }
 }
+
 
   </style>
 </head>
