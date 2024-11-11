@@ -52,7 +52,7 @@
       left: 0;
       width: 100%;
       height: 70vh; /* Increases height */
-      background-color: rgba(255, 255, 255, 0.602); /* Adjusted opacity for more transparency */
+      background-color: rgba(255, 255, 255, 0.502); /* Adjusted opacity for more transparency */
       z-index: 1;
       transform: skewY(-10deg) translateY(20%); /* Keeps the upper left corner in place */
     }
@@ -109,23 +109,6 @@
       letter-spacing: 1px;
       position: relative;
       line-height: 1.3;
-    }
-
-    /* Individual line styling for layered effect */
-    .main__title:nth-child(1) {
-      top: 0; /* First line is at the top */
-    }
-
-    .main__title:nth-child(2) {
-      top: -0.2em; /* Second line is slightly higher */
-    }
-
-    .main__title:nth-child(3) {
-      top: -0.4em; /* Third line is even higher */
-    }
-
-    .main__title:nth-child(4) {
-      top: -0.6em; /* Fourth line is the highest */
     }
 
     /* Main content container */
@@ -192,21 +175,21 @@
     /* Mobile-responsive adjustments */
     @media (max-width: 768px) {
       h1 {
-        font-size: 3.5em;
+        font-size: 3em;
       }
 
       h2 {
-        margin-top: 1em; /* Reduce the space between h1 and h2 */
-        font-size: 1.8em;
+        margin-top: 0.5em; /* Reduce the space between h1 and h2 */
+        font-size: 1.4em;
       }
 
       .main__title {
-        font-size: 3.5em; /* Adjust font size on mobile */
+        font-size: 3em; /* Adjust font size on mobile */
       }
 
       .image, .image-2, .image-4 {
         width: 60vw; /* Make images responsive */
-        max-width: 250px;
+        max-width: 180px;
       }
 
       .button-container {
@@ -225,7 +208,7 @@
       }
 
       .overlay-half {
-        height: 60vh; /* Reduce overlay height for smaller screens */
+        height: 50vh; /* Reduce overlay height for smaller screens */
       }
     }
   </style>
@@ -262,6 +245,7 @@
   </script>
 </body>
 </html>
+
 
 
 
