@@ -11,42 +11,38 @@
 
     /* Gradient background for the entire page */
     body {
-      background: linear-gradient(45deg, #e0d4f4, #bfa3e6, #e4a9cf, #d8c2e5, #af93d0);
-      background-size: 800% 800%; /* Smooth gradient effect */
-      animation: gradientAnimation 30s ease infinite;
-      height: 100vh;
-      font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))) + 2px;
-      font-family: "Inter", sans-serif;
-      font-weight: 300;
-      overflow: hidden;
-      color: white;
-      text-align: center;
-      position: relative;
-    }
+  background: radial-gradient(circle at 50% 50%, 
+    #4a59e2 0%, 
+    #4a59e2 20%, 
+    #7fa1e6 40%, 
+    #9b88e4 60%, 
+    #a06cd6 80%, 
+    #8746b3 90%, 
+    #6b36b7 100%);
+  background-size: 400% 400%; /* Large size for smoother animation */
+  animation: gradientAnimation 30s ease-in-out infinite;
+  height: 100vh;
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))) + 2px;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  position: relative;
+}
 
-    /* Animation for gradient background */
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-        background-image: linear-gradient(45deg, #e0d4f4, #bfa3e6, #e4a9cf, #d8c2e5, #af93d0);
-      }
-      25% {
-        background-position: 100% 0%;
-        background-image: linear-gradient(135deg, #af93d0, #d8c2e5, #e4a9cf, #bfa3e6, #e0d4f4);
-      }
-      50% {
-        background-position: 0% 100%;
-        background-image: linear-gradient(45deg, #e0d4f4, #bfa3e6, #e4a9cf, #d8c2e5, #af93d0);
-      }
-      75% {
-        background-position: 100% 50%;
-        background-image: linear-gradient(135deg, #af93d0, #d8c2e5, #e4a9cf, #bfa3e6, #e0d4f4);
-      }
-      100% {
-        background-position: 0% 50%;
-        background-image: linear-gradient(45deg, #e0d4f4, #bfa3e6, #e4a9cf, #d8c2e5, #af93d0);
-      }
-    }
+/* Continuous back-and-forth animation for background */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
 
     /* White overlay layer covering half of the screen with a sloping edge */
     .overlay-half {
