@@ -46,15 +46,16 @@
 
     /* White overlay layer covering half of the screen with a sloping edge */
     .overlay-half {
-      position: absolute;
-      top: 50vh;
-      left: 0;
-      width: 100%;
-      height: 70vh; /* Increases height */
-      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-      z-index: 1;
-      transform: skewY(-10deg) translateY(20%); /* Keeps the upper left corner in place */
-    }
+  position: absolute;
+  top: 50vh;
+  left: 0;
+  width: 100%;
+  height: 70vh; /* Increases height */
+  background-color: rgba(255, 255, 255, 0.602); /* Adjusted opacity for more transparency */
+  z-index: 1;
+  transform: skewY(-10deg) translateY(20%); /* Keeps the upper left corner in place */
+}
+
     .image {
       width: 40vw;
       max-width: 330px;
