@@ -182,10 +182,9 @@
     @media (max-width: 768px) {
   /* Reduce font sizes and adjust spacing for mobile */
   .main__title {
-    font-size: 2.25em;
+    font-size: 2.25em; /* Reduced font size for mobile */
     text-align: left;
-    line-height: 1.1; /* Reduced line height for closer spacing */
-    margin-top: 10px; /* Reduced top margin */
+    line-height: 1.1; /* Reduced line height */
   }
 
   h2 {
@@ -226,27 +225,28 @@
       }
       .button-container {
         display: flex;
-        justify-content: space-between; /* Add space between input and button */
+        justify-content: flex-start; /* Align items to the left */
         align-items: center; /* Vertically align the items */
         width: 100%; /* Ensure the container takes full width */
+        gap: 10px; /* Add space between input and button */
       }
 
       /* Adjust email input field */
       .email-input {
         width: 70%; /* Allow the input field to take most of the space */
         max-width: 160px; /* Restrict maximum width for consistency */
-        margin-right: 10px; /* Space between input field and button */
+        height: 45px; /* Set a fixed height for the input field */
       }
 
       .learn-more-button {
-        height: 100%; /* Make button height match the input field */
+        width: 30%; /* Adjust button width */
+        height: 45px; /* Set a fixed height for the button */
         padding: 12px 24px; /* Ensure padding matches the email input padding */
         font-size: 1.2em; /* Keep font size consistent */
-        display: inline-flex; /* Ensures the button contents stay aligned */
+        display: flex; /* Make button contents stay aligned */
         align-items: center; /* Centers the text vertically */
         justify-content: center; /* Ensures the text is horizontally centered */
-        width: 25%; /* Keep the button width */
-        white-space: nowrap; /* Prevent text from wrapping */
+        text-decoration: none; /* Remove underline */
       }
 
       /* Mobile layout for the overlay */
