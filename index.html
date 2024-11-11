@@ -202,8 +202,14 @@
     margin-top: 10px; /* Reduced top margin */
   }
 
-  /* Main container no longer has a fixed height */
-  .main {
+      /* Allow the body to scroll */
+      body {
+        min-height: 100%; /* Ensure the body stretches to full height */
+        overflow-y: auto; /* Allow vertical scrolling */
+      }
+
+      /* Main container no longer has a fixed height */
+      .main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
