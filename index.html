@@ -179,6 +179,7 @@
     /* Mobile-responsive adjustments */
 /* Mobile-responsive adjustments */
 /* Mobile-responsive adjustments */
+/* Mobile-responsive adjustments */
 @media (max-width: 768px) {
   /* Adjusting font sizes for mobile */
   .main__title {
@@ -226,8 +227,8 @@
 
   /* Align images vertically on mobile */
   .image, .image-2, .image-4 {
-    width: 30vw; /* Adjust image sizes */
-    max-width: 120px;
+    width: 60vw; /* Double image sizes for title.png and game.png */
+    max-width: 240px;
     position: static; /* Stack images vertically on mobile */
     margin: 1.5em auto; /* Center images with some space */
   }
@@ -238,15 +239,17 @@
     max-width: 250px; /* Max width for consistency */
     margin: 1em 0; /* Space between input field and button */
     text-align: left; /* Align the text inside the input field to the left */
+    margin-left: 0%; /* Align email input field to the left */
   }
 
   /* Button adjustments */
   .learn-more-button {
-    width: 80%; /* Make the button the same width as the input */
-    max-width: 250px; /* Ensure button is not too large */
+    width: 40%; /* Make the button half the original size */
+    max-width: 125px; /* Ensure button is not too large */
     margin-top: 1em; /* Space between input and button */
     display: inline-block; /* Center the button under the input */
     text-align: left; /* Align button text to the left */
+    margin-left: 0%; /* Align the button to the left */
   }
 
   /* Mobile layout for the overlay */
@@ -255,8 +258,6 @@
     transform: skewY(-10deg) translateY(30%); /* Adjust skew for smaller screens */
   }
 }
-
-
 
 
   </style>
