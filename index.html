@@ -12,15 +12,8 @@
 
     /* Gradient background for the entire page */
     body {
-      background: radial-gradient(circle at 50% 50%, 
-        #6674f1 0%, 
-        #7d88ea 20%, 
-        #7fa1e6 40%, 
-        #9b88e4 60%, 
-        #a06cd6 80%, 
-        #8746b3 90%, 
-        #6b36b7 100%);
-      background-size: 400% 400%; /* Large size for smoother animation */
+      background: radial-gradient(circle at 50% 50%, #6674f1 0%, #7d88ea 20%, #7fa1e6 40%, #9b88e4 60%, #a06cd6 80%, #8746b3 90%, #6b36b7 100%);
+      background-size: 400% 400%;
       animation: gradientAnimation 50s ease-in-out infinite;
       height: 100vh;
       font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))) + 2px;
@@ -45,16 +38,16 @@
       }
     }
 
-    /* White overlay layer covering half of the screen with a sloping edge */
+    /* White overlay layer */
     .overlay-half {
       position: absolute;
       top: 50vh;
       left: 0;
       width: 100%;
-      height: 70vh; /* Increases height */
-      background-color: rgba(255, 255, 255, 0.502); /* Adjusted opacity for more transparency */
+      height: 70vh;
+      background-color: rgba(255, 255, 255, 0.502);
       z-index: 1;
-      transform: skewY(-10deg) translateY(20%); /* Keeps the upper left corner in place */
+      transform: skewY(-10deg) translateY(20%);
     }
 
     /* Responsive images */
@@ -70,7 +63,7 @@
       z-index: 6;
     }
     .image-2 {
-      top: 13vh;
+      top: 10vh; /* Adjusted top position for mobile */
       right: 5%;
       z-index: 5;
     }
@@ -88,25 +81,25 @@
     h1, h2 {
       margin: 0;
       padding: 0;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* More prominent shadow for better readability */
-      text-align: left; /* Align text to the left */
-      letter-spacing: 1px; /* Slight letter spacing */
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      text-align: left;
+      letter-spacing: 1px;
     }
 
     h1 {
       font-size: 4.5em;
-      font-weight: 700; /* Bold weight */
+      font-weight: 700;
       font-family: "Poppins", sans-serif;
     }
 
     h2 {
       font-size: 1.7em;
       font-weight: 400;
-      line-height: 1.5; /* Increase line-height for better spacing between lines */
+      line-height: 1.5;
     }
 
     .main__title {
-      color: rgb(255, 255, 255); /* Semi-transparent white text */
+      color: rgb(255, 255, 255);
       font-size: 4.5em;
       font-weight: 700;
       font-family: "Poppins", sans-serif;
@@ -124,7 +117,7 @@
       align-items: flex-start;
       padding-left: 5%;
       position: relative;
-      z-index: 2; /* Ensures the content is above the overlay */
+      z-index: 2;
     }
 
     .main__text-wrapper {
@@ -137,6 +130,8 @@
       margin-top: 2em;
       z-index: 10;
       text-align: left;
+      display: flex;
+      align-items: center;
     }
 
     /* Email input and button styles */
@@ -144,138 +139,89 @@
       padding: 12px;
       font-size: 1.25em;
       border-radius: 30px;
-      border: 2px solid rgba(113, 113, 113, 0.6); /* Increase border opacity */
-      background-color: rgba(214, 214, 214, 0.8); /* Less transparent gray background */
+      border: 2px solid rgba(113, 113, 113, 0.6);
+      background-color: rgba(214, 214, 214, 0.8);
       outline: none;
       font-family: "Inter", sans-serif;
       font-weight: 300;
-      margin-right: 10px;
       width: 100%;
       max-width: 250px;
       color: white;
+      margin-right: 10px;
     }
 
     .email-input:focus {
-      border-color: rgba(142, 142, 142, 0.9); /* Brighter border on focus */
-      background-color: rgba(228, 227, 227, 0.9); /* Darker gray on focus */
+      border-color: rgba(142, 142, 142, 0.9);
+      background-color: rgba(228, 227, 227, 0.9);
     }
 
     .learn-more-button {
       padding: 12px 24px;
       font-size: 1.2em;
-      background: rgba(138, 21, 255, 0.8); /* Less transparent purple */
+      background: rgba(138, 21, 255, 0.8);
       color: rgba(255, 255, 255, 0.9);
-      border: 2px solid rgba(255, 255, 255, 0.3); /* Less transparent border */
+      border: 2px solid rgba(255, 255, 255, 0.3);
       border-radius: 30px;
       transition: all 0.3s ease;
       text-decoration: none;
       display: inline-block;
-      margin-top: 1em; /* Move button below the input */
+      width: auto; /* Adjusted for mobile */
     }
 
     .learn-more-button:hover {
-      background: rgba(188, 113, 226, 0.8); /* Gray background on hover */
-      color: rgba(255, 255, 255, 0.9); /* Maintain white text color */
+      background: rgba(188, 113, 226, 0.8);
+      color: rgba(255, 255, 255, 0.9);
     }
 
     /* Mobile-responsive adjustments */
     @media (max-width: 768px) {
-      /* Adjust font sizes for mobile */
       .main__title {
-        font-size: 2.25em; /* Reduce font size to half for mobile */
-        text-align: left; /* Align text to the left */
-        line-height: 1.2; /* Adjust line-height for readability */
-        margin-left: 0; /* Remove left margin */
-        margin-top: 20px; /* Add space at the top to lower the title */
+        font-size: 2.25em;
+        line-height: 1.2;
+        margin-top: 20px;
       }
 
       h2 {
-        font-size: 1.15em; /* Reduce subtitle font size by half for mobile */
-        text-align: left; /* Align subtitle to the left */
-        margin-left: 0; /* Align subtitle to the left */
-        line-height: 1.5; /* Maintain proper line height */
-        margin-top: 15px; /* Space above the subtitles */
+        font-size: 1.15em;
+        line-height: 1.4;
+        margin-top: 15px;
       }
 
-      /* Adjust text content and alignment */
       .main__text-wrapper {
-        padding: 1.5em; /* Less padding for mobile screens */
-        text-align: left; /* Align text to the left */
-        z-index: 2;
-        margin-left: 0; /* No left margin, to align text with the edge */
-        margin-top: 20px; /* Add space above the text wrapper */
+        padding: 1.5em;
+        margin-top: 20px;
       }
 
-      /* Allow the body to scroll */
-      body {
-        min-height: 100%; /* Ensure the body stretches to full height */
-        overflow-y: auto; /* Allow vertical scrolling */
-      }
-
-      /* Main container no longer has a fixed height */
       .main {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* Let content flow naturally */
-        align-items: center; /* Center align all content horizontally */
-        padding-left: 0;
-        z-index: 2; /* Ensures the content is above the overlay */
-        margin-bottom: 20px; /* Add space at the bottom for scrolling */
-        margin-top: 30px; /* Add space at the top to lower all content */
+        align-items: center;
+        margin-top: 30px;
       }
 
-      /* Align images vertically on mobile */
       .image, .image-2, .image-4 {
-        width: 60vw; /* Double image sizes for title.png and game.png */
+        width: 60vw;
         max-width: 240px;
-        position: static; /* Stack images vertically on mobile */
-        margin: 1.5em auto; /* Center images with some space */
+        position: static;
+        margin: 1.5em auto;
       }
 
-      /* Adjust email input field */
+      /* Adjustments for email input and button alignment */
       .email-input {
-        width: 60%; /* Reduce width */
-        max-width: 180px; /* Max width for consistency */
-        margin-right: 1em; /* Space between input field and button */
-        margin-bottom: 0; /* Remove extra space below input */
-        text-align: left; /* Align the text inside the input field to the left */
+        width: 55%;
+        max-width: 180px;
+        margin-right: 5px;
       }
 
       .learn-more-button {
-        width: 30%; /* Reduce the button width */
-        max-width: 120px; /* Ensure the button has a max size */
-        margin-top: 0; /* Remove space between input and button */
-        display: inline-block; /* Keep button on the same line */
-        text-align: center; /* Center button text */
+        width: 40%; /* Increased width to fit Learn More on one line */
+        max-width: 130px;
+        text-align: center;
       }
 
-      /* Mobile layout for the overlay */
       .overlay-half {
-        height: 50vh; /* Reduce overlay height */
-        transform: skewY(-10deg) translateY(30%); /* Adjust skew for smaller screens */
-      }
-
-      /* Move LVLUP Logo to the top left corner */
-      .image-4 {
-        position: absolute;
-        top: 1vh; /* Raised logo by 1vh */
-        left: 0;
-        width: 40px; /* Adjust size */
-        max-width: 140px; /* Limit max width */
-        z-index: 3; /* Ensure it's above other content */
-        border-radius: 50px; /* Remove border radius for a clean corner */
-        margin: 10px; /* Add some margin for spacing */
-      }
-
-      /* Reduce indentation between images */
-      .image, .image-2 {
-        position: static;
-        margin-top: 1.5em; /* Add spacing above the images */
-        margin-left: auto;
-        margin-right: auto;
+        height: 50vh;
+        transform: skewY(-10deg) translateY(30%);
       }
     }
-
   </style>
 </head>
 <body>
@@ -310,6 +256,7 @@
   </script>
 </body>
 </html>
+
 
 
 
