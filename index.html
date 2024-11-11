@@ -179,22 +179,8 @@
     }
 
     /* Mobile-responsive adjustments */
-    @media (max-width: 768px) {
-  /* Reduce font sizes and adjust spacing for mobile */
-  .main__title {
-    font-size: 2.25em;
-    text-align: left;
-    line-height: 1.1; /* Reduced line height for closer spacing */
-    margin-top: 10px; /* Reduced top margin */
-  }
-
-  h2 {
-    font-size: 1.15em;
-    text-align: left;
-    line-height: 1.3; /* Closer line height for compact spacing */
-    margin-top: 8px; /* Reduced space between lines */
-  }
-
+    /* Mobile-responsive adjustments */
+@media (max-width: 768px) {
   /* Adjust main text wrapper padding and spacing */
   .main__text-wrapper {
     padding: 1.5em;
@@ -202,14 +188,14 @@
     margin-top: 10px; /* Reduced top margin */
   }
 
-      /* Allow the body to scroll */
-      body {
-        min-height: 100%; /* Ensure the body stretches to full height */
-        overflow-y: auto; /* Allow vertical scrolling */
-      }
+  /* Allow the body to scroll */
+  body {
+    min-height: 100%; /* Ensure the body stretches to full height */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
 
-      /* Main container no longer has a fixed height */
-      .main {
+  /* Main container no longer has a fixed height */
+  .main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -217,64 +203,66 @@
     margin-top: 20px; /* Reduced top margin */
   }
 
-      /* Align images vertically on mobile */
-      .image, .image-2, .image-4 {
-        width: 60vw; /* Double image sizes for title.png and game.png */
-        max-width: 240px;
-        position: static; /* Stack images vertically on mobile */
-        margin: 1.5em auto; /* Center images with some space */
-      }
-      .button-container {
-        display: flex;
-        justify-content: space-between; /* Add space between input and button */
-        align-items: center; /* Vertically align the items */
-        width: 100%; /* Ensure the container takes full width */
-      }
+  /* Align images vertically on mobile */
+  .image, .image-2, .image-4 {
+    width: 60vw; /* Double image sizes for title.png and game.png */
+    max-width: 240px;
+    position: static; /* Stack images vertically on mobile */
+    margin: 1.5em auto; /* Center images with some space */
+  }
 
-      /* Adjust email input field */
-      .email-input {
-        width: 70%; /* Allow the input field to take most of the space */
-        max-width: 160px; /* Restrict maximum width for consistency */
-        margin-left: -1.5em; /* Space between input field and button */
-      }
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* Add space between input and button */
+    align-items: flex-start; /* Align items to the top */
+    width: 100%; /* Ensure the container takes full width */
+  }
 
-      .learn-more-button {
-        height: 100%; /* Make button height match the input field */
-        padding: 12px 24px; /* Ensure padding matches the email input padding */
-        font-size: 1.2em; /* Keep font size consistent */
-        display: inline-flex; /* Ensures the button contents stay aligned */
-        align-items: center; /* Centers the text vertically */
-        justify-content: center; /* Ensures the text is horizontally centered */
-        width: 25%; /* Keep the button width */
-        white-space: nowrap; /* Prevent text from wrapping */
-      }
+  /* Adjust email input field */
+  .email-input {
+    width: 70%; /* Allow the input field to take most of the space */
+    max-width: 160px; /* Restrict maximum width for consistency */
+    margin-left: 0; /* Removed left margin */
+  }
 
-      /* Mobile layout for the overlay */
-      .overlay-half {
-        height: 50vh; /* Reduce overlay height */
-        transform: skewY(-10deg) translateY(30%); /* Adjust skew for smaller screens */
-      }
+  .learn-more-button {
+    height: 100%; /* Make button height match the input field */
+    padding: 12px 24px; /* Ensure padding matches the email input padding */
+    font-size: 1.2em; /* Keep font size consistent */
+    display: inline-flex; /* Ensures the button contents stay aligned */
+    align-items: center; /* Centers the text vertically */
+    justify-content: center; /* Ensures the text is horizontally centered */
+    width: 25%; /* Keep the button width */
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
 
-      /* Move LVLUP Logo to the top left corner */
-      .image-4 {
-        position: absolute;
-        top: 1vh; /* Raised logo by 1vh */
-        left: 0;
-        width: 40px; /* Adjust size */
-        max-width: 140px; /* Limit max width */
-        z-index: 3; /* Ensure it's above other content */
-        border-radius: 50px; /* Remove border radius for a clean corner */
-        margin: 10px; /* Add some margin for spacing */
-      }
+  /* Mobile layout for the overlay */
+  .overlay-half {
+    height: 50vh; /* Reduce overlay height */
+    transform: skewY(-10deg) translateY(30%); /* Adjust skew for smaller screens */
+  }
 
-      /* Reduce indentation between images */
-      .image, .image-2 {
-        position: static;
-        margin-top: 1.5em; /* Add spacing above the images */
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
+  /* Move LVLUP Logo to the top left corner */
+  .image-4 {
+    position: absolute;
+    top: 1vh; /* Raised logo by 1vh */
+    left: 0;
+    width: 40px; /* Adjust size */
+    max-width: 140px; /* Limit max width */
+    z-index: 3; /* Ensure it's above other content */
+    border-radius: 50px; /* Remove border radius for a clean corner */
+    margin: 10px; /* Add some margin for spacing */
+  }
+
+  /* Reduce indentation between images */
+  .image, .image-2 {
+    position: static;
+    margin-top: 1.5em; /* Add spacing above the images */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 
   </style>
 </head>
