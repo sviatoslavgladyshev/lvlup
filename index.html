@@ -78,7 +78,7 @@
 
     h2 {
       font-size: 1.7em;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     .main {
@@ -137,7 +137,8 @@
       padding: 12px;
       font-size: 1.25em;
       border-radius: 30px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(113, 113, 113, 0.6); /* Increase border opacity */
+      background-color: rgba(153, 153, 153, 0.8); /* Less transparent gray background */
       outline: none;
       font-family: "Inter", sans-serif;
       font-weight: 300;
@@ -146,20 +147,27 @@
       max-width: 250px;
     }
 
+    .email-input:focus {
+      border-color: rgba(142, 142, 142, 0.9); /* Brighter border on focus */
+      background-color: rgba(124, 124, 124, 0.9); /* Darker gray on focus */
+    }
+
     .learn-more-button {
       padding: 12px 24px;
       font-size: 1.2em;
-      background: rgba(138, 21, 255, 0.35);
+      background: rgba(138, 21, 255, 0.8); /* Less transparent purple */
       color: rgba(255, 255, 255, 0.9);
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3); /* Less transparent border */
       border-radius: 30px;
       transition: all 0.3s ease;
       text-decoration: none;
     }
 
     .learn-more-button:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(188, 113, 226, 0.8); /* Gray background on hover */
+      color: rgba(255, 255, 255, 0.9); /* Maintain white text color */
     }
+
 
     @media (max-width: 768px) {
       h1 {
@@ -200,9 +208,12 @@
         <h1 class="main__title" style="margin-bottom: 0.1em;">management</h1>
         <h1 class="main__title" style="margin-bottom: 0.1em;">to upgrade your</h1>
         <h1 class="main__title" style="margin-bottom: 0.1em;">workforce</h1>
-        <h2 style="margin-top: 1em; font-size: 1.7em;">
-        AI powered software to engage and develop your workforce at scale
-      </h2>
+        <h2 style="margin-top: 0.5em; font-size: 1.8em;">
+          AI powered software to dynamically motivate,
+        </h2>
+        <h2 style="margin-top: 0.5em; font-size: 1.8em;">
+          engage, and develop your workforce at scale
+    </h2>
       <div class="button-container">
         <input type="email" placeholder="Enter your email" class="email-input" id="emailInput">
         <a href="./alpha-join/" class="button learn-more-button" onclick="storeEmail()" style="color: white;">Learn More</a>
@@ -218,6 +229,7 @@
   </script>
 </body>
 </html>
+
 
 
 <!-- 
