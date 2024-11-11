@@ -99,6 +99,7 @@
     h2 {
       font-size: 1.7em;
       font-weight: 400;
+      line-height: 1.5; /* Increase line-height for better spacing between lines */
     }
 
     .main__title {
@@ -176,56 +177,53 @@
 
     /* Mobile-responsive adjustments */
     @media (max-width: 768px) {
-      h1 {
-        font-size: 3em;
-      }
+  /* Center the text on mobile */
+  .main__title {
+    font-size: 3em; /* Adjust font size for mobile */
+    text-align: center; /* Center the text */
+    line-height: 1.2;
+  }
 
-      h2 {
-        margin-top: 0.5em; /* Reduce the space between h1 and h2 */
-        font-size: 1.4em;
-      }
+  h2 {
+    font-size: 1.3em; /* Adjust subtitle font size */
+    text-align: center; /* Center subtitle text */
+  }
 
-      .main__title {
-        font-size: 3em; /* Adjust font size on mobile */
-      }
+  .main__text-wrapper {
+    padding: 1.5em; /* Less padding for mobile screens */
+    text-align: center; /* Center the text content */
+    z-index: 2;
+  }
 
-      .image, .image-2 {
-        width: 40vw; /* Make images responsive */
-        max-width: 150px;
-        position: static; /* Transfer images to below the text for mobile */
-        margin: 1em auto;
-      }
+  .image, .image-2, .image-4 {
+    width: 30vw; /* Adjust image sizes */
+    max-width: 120px;
+    position: static; /* Stack images vertically on mobile */
+    margin: 1.5em auto; /* Center images with some space */
+  }
 
-      .image-4 {
-        width: 30vw;
-        max-width: 140px;
-        position: absolute;
-        top: 0.4vh;
-        left: 1%;
-        z-index: 3;
-        border-radius: 50px;
-      }
+  /* Email input field adjustments */
+  .email-input {
+    width: 80%; /* Reduce the width to make it smaller */
+    max-width: 200px; /* Set a max width for better consistency */
+    margin: 1em auto; /* Center the input field */
+  }
 
-      .button-container {
-        margin-top: 1em; /* Reduce space between text and buttons */
-      }
+  /* Button adjustments */
+  .learn-more-button {
+    width: 80%; /* Make the button the same width as the input */
+    max-width: 200px; /* Ensure it's not too large */
+    margin-top: 1em; /* Space between input and button */
+    display: inline-block; /* Center the button under the input */
+  }
 
-      /* Adjust email input and button */
-      .email-input {
-        width: 100%;
-        max-width: 100%;
-        margin-top: 0.5em; /* Reduce space between email input and button */
-      }
+  /* Mobile layout for the overlay */
+  .overlay-half {
+    height: 50vh; /* Reduce the overlay height */
+    transform: skewY(-10deg) translateY(30%); /* Adjust skew for smaller screens */
+  }
+}
 
-      .learn-more-button {
-        width: 100%;
-        margin-top: 1em;
-      }
-
-      .overlay-half {
-        height: 50vh; /* Reduce overlay height for smaller screens */
-      }
-    }
   </style>
 </head>
 <body>
@@ -260,7 +258,6 @@
   </script>
 </body>
 </html>
-
 
 
 
