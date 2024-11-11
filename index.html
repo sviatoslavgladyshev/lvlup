@@ -141,8 +141,8 @@
       width: 100%;              /* Make the background take full width of input */
       max-width: 400px;         /* Match the max width of the input */
       height: 48px;
-      border: 2px solid rgba(113, 113, 113, 0.6);             /* Match the height of the input field */
-      background-color: rgba(214, 214, 214, 0.8); /* Light gray background */
+      border: 2px solid rgb(255, 255, 255);             /* Match the height of the input field */
+      background-color: rgb(255, 255, 255); /* Light gray background */
       border-radius: 30px;      /* Same rounded corners as the input */
       z-index: 6;               /* Position behind the input field */
       top: 7px;                /* Match top position to the email input */
@@ -150,56 +150,68 @@
     }
 
     /* Modify button container to be more flexible */
-    .button-container {
-      margin-top: 2em;
-      position: relative;  /* Ensure the background is positioned relative to this container */
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      width: 100%;
-      z-index: 10;
-    }
+    /* Modify button container to align input and button */
+/* Modify button container to align input and button */
+/* Button container setup */
+.button-container {
+  margin-top: 2em;
+  position: relative;  /* Ensures child elements are positioned relative to the container */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;    /* Maximum width for the button and input */
+  height: 48px;        /* Ensure both elements have the same height */
+  z-index: 5;
+}
 
-    /* Email input and button styles */
-    .email-input {
-      padding: 12px;
-      font-size: 1.25em;
-      border-radius: 30px;
-      border: 2px solid rgb(214, 214, 214, 0.8); /* Increase border opacity */
-      background-color: rgba(214, 214, 214, 0.8); /* Less transparent gray background */
-      outline: none;
-      font-family: "Inter", sans-serif;
-      font-weight: 300;
-      margin-right: 10px;
-      width: 100%;
-      max-width: 250px;
-      color: rgb(0, 0, 0);
-      z-index: 7;
-    }
+/* Email input styles */
+.email-input {
+  padding: 12px;
+  font-size: 1.25em;
+  border-radius: 30px;
+  border: 2px solid rgb(214, 214, 214, 0.8);
+  background-color: rgba(214, 214, 214, 0.8);
+  outline: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  width: 100%;  /* Make input field take the full width of the container */
+  max-width: 372px;  /* Limit max width to 250px */
+  color: rgb(0, 0, 0);
+  position: absolute;  /* Position the input above the container */
+  z-index: 6;   /* Place input field below the button */
+}
 
-    .email-input:focus {
-      border-color: rgba(142, 142, 142, 0.9); /* Brighter border on focus */
-      background-color: rgba(228, 227, 227, 0.9); /* Darker gray on focus */
-    }
+.email-input:focus {
+  border-color: rgba(142, 142, 142, 0.9);
+  background-color: rgba(228, 227, 227, 0.9);
+}
 
-    .learn-more-button {
-      padding: 12px 24px;
-      font-size: 1.2em;
-      background: rgba(138, 21, 255, 0.8); /* Less transparent purple */
-      color: rgba(255, 255, 255, 0.9);
-      border: 2px solid rgba(255, 255, 255, 0.3); /* Less transparent border */
-      border-radius: 30px;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 1em; /* Move button below the input */
-      z-index: 6;
-    }
+/* Learn More button styling */
+.learn-more-button {
+  padding: 12px 24px;
+  font-size: 1.2em;
+  background: rgba(138, 21, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: absolute;  /* Position the button on top of the input field */
+  right: 0;  /* Align button to the right of the container */
+  width: 120px;  /* Set a fixed width for the button */
+  height: 50%;  /* Ensure the button height matches the container */
+  z-index: 7;  /* Ensure the button is above the input field */
+}
 
-    .learn-more-button:hover {
-      background: rgba(188, 113, 226, 0.8); /* Gray background on hover */
-      color: rgba(255, 255, 255, 0.9); /* Maintain white text color */
-    }
+/* Hover effect for Learn More button */
+.learn-more-button:hover {
+  background: rgba(188, 113, 226, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+
 
     /* Mobile-responsive adjustments */
     @media (max-width: 768px) {
