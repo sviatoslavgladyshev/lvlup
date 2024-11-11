@@ -104,34 +104,33 @@
     }
     /* Apply gradient to the text */
     .main__title {
-      background: linear-gradient(90deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-      background-clip: text;
-      -webkit-background-clip: text; /* For Safari compatibility */
-      color: transparent; /* Makes the text transparent so the gradient shows */
-      font-size: 4.5em;
-      font-weight: 700;
-      font-family: "Poppins", sans-serif;
-      letter-spacing: 1px;
-      position: relative;
-      line-height: 1.3;
-    }
+  color: rgba(255, 255, 255, 0.667); /* Semi-transparent white text */
+  font-size: 4.5em;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  position: relative;
+  line-height: 1.3;
+}
 
-    /* Individual line styling for layered effect */
-    .main__title:nth-child(1) {
-      top: 0; /* First line is at the top */
-    }
+/* Individual line styling for layered effect */
+.main__title:nth-child(1) {
+  top: 0; /* First line is at the top */
+}
 
-    .main__title:nth-child(2) {
-      top: -0.2em; /* Second line is slightly higher */
-    }
+.main__title:nth-child(2) {
+  top: -0.2em; /* Second line is slightly higher */
+}
 
-    .main__title:nth-child(3) {
-      top: -0.4em; /* Third line is even higher */
-    }
+.main__title:nth-child(3) {
+  top: -0.4em; /* Third line is even higher */
+}
 
-    .main__title:nth-child(4) {
-      top: -0.6em; /* Fourth line is the highest */
-    }
+.main__title:nth-child(4) {
+  top: -0.6em; /* Fourth line is the highest */
+}
+
+
 
 
     .main {
