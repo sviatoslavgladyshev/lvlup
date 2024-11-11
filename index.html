@@ -189,18 +189,25 @@
         font-size: 3em; /* Adjust font size on mobile */
       }
 
-      .image, .image-2, .image-4 {
+      .image, .image-2 {
         width: 40vw; /* Make images responsive */
         max-width: 150px;
         position: static; /* Transfer images to below the text for mobile */
         margin: 1em auto;
       }
 
+      .image-4 {
+        width: 30vw;
+        max-width: 140px;
+        position: absolute;
+        top: 0.4vh;
+        left: 1%;
+        z-index: 3;
+        border-radius: 50px;
+      }
+
       .button-container {
         margin-top: 1em; /* Reduce space between text and buttons */
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
       }
 
       /* Adjust email input and button */
@@ -253,6 +260,7 @@
   </script>
 </body>
 </html>
+
 
 
 
