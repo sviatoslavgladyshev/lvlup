@@ -177,6 +177,7 @@
 
     /* Mobile-responsive adjustments */
     /* Mobile-responsive adjustments */
+/* Mobile-responsive adjustments */
 @media (max-width: 768px) {
   /* Adjusting font sizes for mobile */
   .main__title {
@@ -193,12 +194,29 @@
     line-height: 1.5; /* Maintain proper line height */
   }
 
-  /* Center the text content and align it left */
+  /* Adjust text content and alignment */
   .main__text-wrapper {
     padding: 1.5em; /* Less padding for mobile screens */
     text-align: left; /* Align text to the left */
     z-index: 2;
     margin-left: 5%; /* Left margin for consistent alignment */
+  }
+
+  /* Allow the body to scroll */
+  body {
+    min-height: 100%; /* Ensure the body stretches to full height */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+
+  /* Main container no longer has a fixed height */
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Let content flow naturally */
+    align-items: flex-start;
+    padding-left: 5%;
+    z-index: 2; /* Ensures the content is above the overlay */
+    margin-bottom: 20px; /* Add space at the bottom for scrolling */
   }
 
   /* Align images vertically on mobile */
@@ -232,6 +250,7 @@
     transform: skewY(-10deg) translateY(30%); /* Adjust skew for smaller screens */
   }
 }
+
 
 
   </style>
