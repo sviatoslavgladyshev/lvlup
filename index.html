@@ -224,21 +224,24 @@
         position: static; /* Stack images vertically on mobile */
         margin: 1.5em auto; /* Center images with some space */
       }
+      .button-container {
+        display: flex;
+        justify-content: space-between; /* Add space between input and button */
+        align-items: center; /* Vertically align the items */
+        width: 100%; /* Ensure the container takes full width */
+      }
 
       /* Adjust email input field */
       .email-input {
-        width: 60%; /* Reduce width */
-        max-width: 180px; /* Max width for consistency */
-        margin-right: 1em; /* Space between input field and button */
-        margin-bottom: 0; /* Remove extra space below input */
-        text-align: left; /* Align the text inside the input field to the left */
+        width: 70%; /* Allow the input field to take most of the space */
+        max-width: 160px; /* Restrict maximum width for consistency */
+        margin-right: 10px; /* Space between input field and button */
       }
 
       .learn-more-button {
-        width: auto; /* Allow button to resize based on content */
-        padding: 8px 16px; /* Reduce padding for better fit */
+        width: 25%; /* Allow the button to take a smaller portion */
+        padding: 8px 16px; /* Reduced padding for better fit */
         font-size: 1em; /* Adjust font size */
-        max-width: none; /* Remove max-width to prevent text wrapping */
         white-space: nowrap; /* Prevent text from wrapping */
       }
 
