@@ -201,7 +201,11 @@
 }
 
 /* Learn More button styling */
+/* Learn More button styling */
 .learn-more-button {
+  display: flex;                  /* Use flexbox for centering */
+  align-items: center;            /* Center text vertically */
+  justify-content: center;        /* Center text horizontally */
   padding: 12px 24px;
   font-size: 1.2em;
   background: rgba(0, 0, 0, 0.8);
@@ -210,16 +214,18 @@
   border-radius: 30px;
   transition: all 0.3s ease;
   text-decoration: none;
-  position: absolute;  /* Position the button on top of the input field */
-  right: 0;  /* Align button to the right of the container */
-  width: 120px;  /* Set a fixed width for the button */
-  height: 50%;  /* Ensure the button height matches the container */
-  z-index: 7;  /* Ensure the button is above the input field */
+  position: absolute;             /* Position the button on top of the input field */
+  right: 0;                       /* Align button to the right of the container */
+  width: 120px;                   /* Set a fixed width for the button */
+  height: 47%;                   /* Ensure the button height matches the container */
+  z-index: 7;                     /* Ensure the button is above the input field */
+  white-space: nowrap;            /* Prevent text from wrapping */
 }
+
 
 /* Hover effect for Learn More button */
 .learn-more-button:hover {
-  background: rgba(188, 113, 226, 0.8);
+  background: rgba(106, 106, 106, 0.8);
   color: rgba(255, 255, 255, 0.9);
 }
 
