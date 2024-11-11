@@ -180,49 +180,36 @@
 
     /* Mobile-responsive adjustments */
     @media (max-width: 768px) {
-      /* Adjust font sizes for mobile */
-      .main__title {
-        font-size: 2.25em; /* Reduce font size to half for mobile */
-        text-align: left; /* Align text to the left */
-        line-height: 1.2; /* Adjust line-height for readability */
-        margin-left: 0; /* Remove left margin */
-        margin-top: 20px; /* Add space at the top to lower the title */
-      }
+  /* Reduce font sizes and adjust spacing for mobile */
+  .main__title {
+    font-size: 2.25em;
+    text-align: left;
+    line-height: 1.1; /* Reduced line height for closer spacing */
+    margin-top: 10px; /* Reduced top margin */
+  }
 
-      h2 {
-        font-size: 1.15em; /* Reduce subtitle font size by half for mobile */
-        text-align: left; /* Align subtitle to the left */
-        margin-left: 0; /* Align subtitle to the left */
-        line-height: 1.5; /* Maintain proper line height */
-        margin-top: 15px; /* Space above the subtitles */
-      }
+  h2 {
+    font-size: 1.15em;
+    text-align: left;
+    line-height: 1.3; /* Closer line height for compact spacing */
+    margin-top: 8px; /* Reduced space between lines */
+  }
 
-      /* Adjust text content and alignment */
-      .main__text-wrapper {
-        padding: 1.5em; /* Less padding for mobile screens */
-        text-align: left; /* Align text to the left */
-        z-index: 2;
-        margin-left: 0; /* No left margin, to align text with the edge */
-        margin-top: 20px; /* Add space above the text wrapper */
-      }
+  /* Adjust main text wrapper padding and spacing */
+  .main__text-wrapper {
+    padding: 1.5em;
+    text-align: left;
+    margin-top: 10px; /* Reduced top margin */
+  }
 
-      /* Allow the body to scroll */
-      body {
-        min-height: 100%; /* Ensure the body stretches to full height */
-        overflow-y: auto; /* Allow vertical scrolling */
-      }
-
-      /* Main container no longer has a fixed height */
-      .main {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* Let content flow naturally */
-        align-items: center; /* Center align all content horizontally */
-        padding-left: 0;
-        z-index: 2; /* Ensures the content is above the overlay */
-        margin-bottom: 20px; /* Add space at the bottom for scrolling */
-        margin-top: 30px; /* Add space at the top to lower all content */
-      }
+  /* Main container no longer has a fixed height */
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px; /* Reduced top margin */
+  }
 
       /* Align images vertically on mobile */
       .image, .image-2, .image-4 {
