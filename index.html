@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper scaling on mobile -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <title>LVLUP</title>
   <link rel="icon" href="../images/lvlup_logo.png">
@@ -11,71 +12,69 @@
 
     /* Gradient background for the entire page */
     body {
-  background: radial-gradient(circle at 50% 50%, 
-    #6674f1 0%, 
-    #7d88ea 20%, 
-    #7fa1e6 40%, 
-    #9b88e4 60%, 
-    #a06cd6 80%, 
-    #8746b3 90%, 
-    #6b36b7 100%);
-  background-size: 400% 400%; /* Large size for smoother animation */
-  animation: gradientAnimation 50s ease-in-out infinite;
-  height: 100vh;
-  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))) + 2px;
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
-  overflow: hidden;
-  color: white;
-  text-align: center;
-  position: relative;
-}
+      background: radial-gradient(circle at 50% 50%, 
+        #6674f1 0%, 
+        #7d88ea 20%, 
+        #7fa1e6 40%, 
+        #9b88e4 60%, 
+        #a06cd6 80%, 
+        #8746b3 90%, 
+        #6b36b7 100%);
+      background-size: 400% 400%; /* Large size for smoother animation */
+      animation: gradientAnimation 50s ease-in-out infinite;
+      height: 100vh;
+      font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))) + 2px;
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
 
-/* Continuous back-and-forth animation for background */
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-}
+    /* Continuous back-and-forth animation for background */
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
 
     /* White overlay layer covering half of the screen with a sloping edge */
     .overlay-half {
-  position: absolute;
-  top: 50vh;
-  left: 0;
-  width: 100%;
-  height: 70vh; /* Increases height */
-  background-color: rgba(255, 255, 255, 0.602); /* Adjusted opacity for more transparency */
-  z-index: 1;
-  transform: skewY(-10deg) translateY(20%); /* Keeps the upper left corner in place */
-}
+      position: absolute;
+      top: 50vh;
+      left: 0;
+      width: 100%;
+      height: 70vh; /* Increases height */
+      background-color: rgba(255, 255, 255, 0.602); /* Adjusted opacity for more transparency */
+      z-index: 1;
+      transform: skewY(-10deg) translateY(20%); /* Keeps the upper left corner in place */
+    }
 
-    .image {
+    /* Responsive images */
+    .image, .image-2, .image-4 {
       width: 40vw;
       max-width: 330px;
       position: absolute;
-      top: 16vh;
-      right: 16%;
       z-index: 4;
     }
+    .image {
+      top: 16vh;
+      right: 16%;
+    }
     .image-2 {
-      width: 40vw;
-      max-width: 330px;
-      position: absolute;
       top: 13vh;
       right: 5%;
-      z-index: 3;
     }
     .image-4 {
-      width: 40vw;
+      width: 30vw; /* Adjusted size for better fit on smaller screens */
       max-width: 140px;
-      position: absolute;
       top: 0.4vh;
       left: 1%;
       z-index: 3;
@@ -91,7 +90,6 @@
       letter-spacing: 1px; /* Slight letter spacing */
     }
 
-    /* Larger, bolder, more stylish font for main title */
     h1 {
       font-size: 4.5em;
       font-weight: 700; /* Bold weight */
@@ -102,37 +100,35 @@
       font-size: 1.7em;
       font-weight: 400;
     }
-    /* Apply gradient to the text */
+
     .main__title {
-  color: rgba(255, 255, 255, 0.667); /* Semi-transparent white text */
-  font-size: 4.5em;
-  font-weight: 700;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 1px;
-  position: relative;
-  line-height: 1.3;
-}
+      color: rgba(255, 255, 255, 0.667); /* Semi-transparent white text */
+      font-size: 4.5em;
+      font-weight: 700;
+      font-family: "Poppins", sans-serif;
+      letter-spacing: 1px;
+      position: relative;
+      line-height: 1.3;
+    }
 
-/* Individual line styling for layered effect */
-.main__title:nth-child(1) {
-  top: 0; /* First line is at the top */
-}
+    /* Individual line styling for layered effect */
+    .main__title:nth-child(1) {
+      top: 0; /* First line is at the top */
+    }
 
-.main__title:nth-child(2) {
-  top: -0.2em; /* Second line is slightly higher */
-}
+    .main__title:nth-child(2) {
+      top: -0.2em; /* Second line is slightly higher */
+    }
 
-.main__title:nth-child(3) {
-  top: -0.4em; /* Third line is even higher */
-}
+    .main__title:nth-child(3) {
+      top: -0.4em; /* Third line is even higher */
+    }
 
-.main__title:nth-child(4) {
-  top: -0.6em; /* Fourth line is the highest */
-}
+    .main__title:nth-child(4) {
+      top: -0.6em; /* Fourth line is the highest */
+    }
 
-
-
-
+    /* Main content container */
     .main {
       height: 100vh;
       display: flex;
@@ -156,12 +152,13 @@
       text-align: left;
     }
 
+    /* Email input and button styles */
     .email-input {
       padding: 12px;
       font-size: 1.25em;
       border-radius: 30px;
       border: 2px solid rgba(113, 113, 113, 0.6); /* Increase border opacity */
-      background-color: rgba(117, 116, 116, 0.8); /* Less transparent gray background */
+      background-color: rgba(214, 214, 214, 0.8); /* Less transparent gray background */
       outline: none;
       font-family: "Inter", sans-serif;
       font-weight: 300;
@@ -173,7 +170,7 @@
 
     .email-input:focus {
       border-color: rgba(142, 142, 142, 0.9); /* Brighter border on focus */
-      background-color: rgba(124, 124, 124, 0.9); /* Darker gray on focus */
+      background-color: rgba(228, 227, 227, 0.9); /* Darker gray on focus */
     }
 
     .learn-more-button {
@@ -192,7 +189,7 @@
       color: rgba(255, 255, 255, 0.9); /* Maintain white text color */
     }
 
-
+    /* Mobile-responsive adjustments */
     @media (max-width: 768px) {
       h1 {
         font-size: 3.5em;
@@ -203,19 +200,32 @@
         font-size: 1.8em;
       }
 
-      .button-container {
-        margin-top: 0.5em; /* Reduce the space between the text and input/button */
-        z-index: 10;
-        text-align: left;
+      .main__title {
+        font-size: 3.5em; /* Adjust font size on mobile */
       }
 
-      /* Adjust the email input field to reduce top margin */
+      .image, .image-2, .image-4 {
+        width: 60vw; /* Make images responsive */
+        max-width: 250px;
+      }
+
+      .button-container {
+        margin-top: 1em; /* Reduce space between text and buttons */
+      }
+
+      /* Adjust email input and button */
       .email-input {
-        margin-top: 0.2em; /* Reduce space between email input and previous content */
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0.5em; /* Reduce space between email input and button */
       }
 
       .learn-more-button {
-        margin-top: 0.2em; /* Reduce space between Learn More button and input */
+        width: 100%;
+      }
+
+      .overlay-half {
+        height: 60vh; /* Reduce overlay height for smaller screens */
       }
     }
   </style>
@@ -224,32 +234,24 @@
   <div class="overlay-half"></div>
 
   <div class="main">
-    <div class="main__text-wrapper" style="padding-top: -5vh;">
-      <h1 class="main__title" style="font-size: 5em; margin-bottom: 0.1em;">Performance</h1>
-      <h1 class="main__title" style="font-size: 5em; margin-bottom: 0.1em;">management</h1>
-      <h1 class="main__title" style="font-size: 5em; margin-bottom: 0.1em;">to upgrade your</h1>
-      <h1 class="main__title" style="font-size: 5em; margin-bottom: 0.1em;">workforce</h1>
+    <div class="main__text-wrapper">
+      <h1 class="main__title">Performance</h1>
+      <h1 class="main__title">management</h1>
+      <h1 class="main__title">to upgrade your</h1>
+      <h1 class="main__title">workforce</h1>
 
-    
-      <!-- Added margin-bottom to create space between lines -->
-      <h2 style="margin-top: 0em; margin-bottom: 0.5em; font-size: 1.8em;">
-        AI powered software to dynamically motivate,
-      </h2>
-      <h2 style="margin-top: 0em; font-size: 1.8em;">
-        engage, and develop your workforce at scale
-      </h2>
+      <h2>AI powered software to dynamically motivate,</h2>
+      <h2>engage, and develop your workforce at scale</h2>
     
       <div class="button-container">
         <input type="email" placeholder="Enter your email" class="email-input" id="emailInput">
-        <a href="./alpha-join/" class="button learn-more-button" onclick="storeEmail()" style="color: white;">Learn More</a>
+        <a href="./alpha-join/" class="learn-more-button" onclick="storeEmail()">Learn More</a>
       </div>
     </div>
-    
-    
+
     <img src="./images/game.png" class="image">
     <img src="./images/title.png" class="image-2">
     <img src="./images/LVLUP Logo.png" class="image-4">
-
   </div>
 
   <script>
@@ -260,6 +262,7 @@
   </script>
 </body>
 </html>
+
 
 
 
