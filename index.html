@@ -253,20 +253,29 @@
 
   /* Additional adjustments for subtitle text */
   h2 {
-    font-size: 1.15em;         /* Smaller subtitle text size for mobile */
-    text-align: left;
-    line-height: 1.3;
+    font-size: 1.15em;            /* Adjust the font size */
+    text-align: left;             /* Left-align the text */
+    line-height: 1.5;             /* Ensure spacing between lines */
     margin-top: 10px;
     margin-left: -1em;
-    white-space: normal; /* Ensure the text wraps */
-    word-wrap: break-word; /* Prevents words from overflowing */
+    white-space: normal;          /* Allow the text to break naturally */
+    word-wrap: break-word;        /* Ensure words wrap properly */
   }
 
-  /* Main text wrapper for mobile */
-  .main__text-wrapper {
-    padding: 1.2em;
-    text-align: left;
-    margin-top: 5px;
+  /* Force the text to break into three lines */
+  .main__text-wrapper h2:first-of-type::after {
+    content: "AI powered software to dynamically";
+    display: block;
+  }
+
+  .main__text-wrapper h2:last-of-type::after {
+    content: "motivate, engage, and develop your";
+    display: block;
+  }
+
+  .main__text-wrapper h2 {
+    content: "workforce at scale";
+    display: block;
   }
 
   /* Body scroll for mobile */
