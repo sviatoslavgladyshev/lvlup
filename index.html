@@ -240,46 +240,56 @@
     @media (max-width: 768px) {
   /* Reduce font sizes and adjust spacing for mobile */
   .main__title {
-    font-size: 2.25em;
+    font-size: 2.25em;         /* Smaller font size for mobile */
     text-align: left;
     margin-left: -0.5em;
     line-height: 0vh;
-    margin-top: 50px;
-    color: rgba(0, 0, 0, 0.678);
-    background: none;
+    margin-top: 50px;          /* Reduced margin-top (70px / 1.5 ≈ 46px) */
+    color: rgba(0, 0, 0, 0.678); /* Set a solid color instead of gradient */
+    background: none;          /* Remove background gradient */
     -webkit-background-clip: unset;
     background-clip: unset;
-  }
+}
 
+  /* Additional adjustments for subtitle text */
   h2 {
-    font-size: 1.15em;
+    font-size: 1.15em;         /* Smaller subtitle text size for mobile */
     text-align: left;
-    line-height: 1.5;
-    margin-top: 0px;
+    line-height: 1.5;          /* Reduce line-height to make the text closer together */
+    margin-top: 0px;          /* Reduced space before h2 */
     margin-left: -1em;
-    white-space: normal;
-    word-wrap: break-word;
+    white-space: normal; /* Ensure the text wraps */
+    word-wrap: break-word; /* Prevents words from overflowing */
   }
 
+  /* Adjust margin for last h1 element */
+  h1.main__title:last-of-type {
+    margin-bottom: 40px;  /* Keep the bottom margin to separate it from h2 */
+  }
+
+  /* Main text wrapper for mobile */
   .main__text-wrapper {
     padding: 1.2em;
     text-align: left;
     margin-top: 7px;
   }
 
+  /* Body scroll for mobile */
   body {
     min-height: 100%;
     overflow-y: auto;
   }
 
+  /* Flex adjustments for main container on mobile */
   .main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 60px; /* Increased margin-top for more space */
+    margin-top: 60px;
   }
 
+  /* Stack images vertically on mobile */
   .image, .image-2 {
     width: 60vw;
     max-width: 240px;
@@ -289,11 +299,11 @@
     margin-left: 25%;
     margin-right: 32%;
   }
-
   .image-2 {
-    margin-top: 1em;
+    margin-top: 1em; /* Move image-2 closer to image by reducing the top margin */
     margin-bottom: -2em;
   }
+
 
   .button-container {
     justify-content: flex-start;
@@ -302,6 +312,7 @@
     color: transparent;
   }
 
+  /* Mobile-specific email input styles */
   .email-input {
     width: 150%;
     max-width: 324px;
@@ -319,21 +330,23 @@
     white-space: nowrap;
   }
 
+  /* Overlay adjustments for mobile */
   .overlay-half {
     height: 50vh;
     transform: skewY(-10deg) translateY(30%);
   }
 
-  /* Restore original position for image-4 */
+  /* Restore original top-left position for image-4 */
   .image-4 {
-    width: 40vw;
-    max-width: 140px;
-    position: absolute;
-    top: 0.5vh; /* Original top value */
-    left: 0.5%; /* Original left value */
-    z-index: 3;
-    border-radius: 50px;
-  }
+      width: 40vw;          /* Keep the original width */
+      max-width: 140px;     /* Keep the original max-width */
+      position: absolute;
+      top: -2.1vh;               /* Adjust to bring it slightly closer to the top */
+      left: 2%;              /* Align with the left edge */
+      z-index: 3;
+      border-radius: 50px;
+      margin-bottom: 30vh;
+    }
     }
 
   </style>
