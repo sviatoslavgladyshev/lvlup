@@ -256,15 +256,14 @@
     font-size: 1.15em;         /* Smaller subtitle text size for mobile */
     text-align: left;
     line-height: 1.3;
-    margin-top: 7px;
+    margin-top: 20px;  /* Add space before h2 */
     margin-left: -1em;
     white-space: normal; /* Ensure the text wraps */
     word-wrap: break-word; /* Prevents words from overflowing */
   }
 
-  /* Add margin between first and second h2 */
-  h2:first-of-type {
-    margin-bottom: 1.5em;  /* Add margin between first and second h2 */
+  h1.main__title:last-of-type {
+    margin-bottom: 15px;  /* Add bottom margin to separate it from h2 */
   }
 
   /* Main text wrapper for mobile */
@@ -273,16 +272,6 @@
     text-align: left;
     margin-top: 5px;
   }
-
-  /* Flex adjustments for main container on mobile */
-  .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 20px;
-  }
-
 
   /* Body scroll for mobile */
   body {
