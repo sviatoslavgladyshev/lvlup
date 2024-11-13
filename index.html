@@ -262,12 +262,27 @@
     word-wrap: break-word; /* Prevents words from overflowing */
   }
 
+  /* Add margin between first and second h2 */
+  h2:first-of-type {
+    margin-bottom: 1.5em;  /* Add margin between first and second h2 */
+  }
+
   /* Main text wrapper for mobile */
   .main__text-wrapper {
     padding: 1.2em;
     text-align: left;
     margin-top: 5px;
   }
+
+  /* Flex adjustments for main container on mobile */
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+  }
+
 
   /* Body scroll for mobile */
   body {
