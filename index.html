@@ -291,21 +291,27 @@
 
       /* Adjust email input field */
       .email-input {
-        width: 70%; /* Allow the input field to take most of the space */
-        max-width: 160px; /* Restrict maximum width for consistency */
-        margin-left: -1.5em; /* Space between input field and button */
-      }
+  width: 70%;
+  max-width: 160px;
+  padding: 12px 24px; /* Устанавливаем внутренние отступы */
+  margin-left: -1.5em;
+  height: auto; /* Высота будет установлена от внутреннего отступа */
+  box-sizing: border-box; /* Обеспечиваем корректное выравнивание высоты */
+}
 
-      .learn-more-button {
-        height: 100%; /* Make button height match the input field */
-        padding: 12px 24px; /* Ensure padding matches the email input padding */
-        font-size: 1.2em; /* Keep font size consistent */
-        display: inline-flex; /* Ensures the button contents stay aligned */
-        align-items: center; /* Centers the text vertically */
-        justify-content: center; /* Ensures the text is horizontally centered */
-        width: 25%; /* Keep the button width */
-        white-space: nowrap; /* Prevent text from wrapping */
-      }
+.learn-more-button {
+  width: 25%;
+  max-width: 100px; /* Ограничение ширины кнопки, если требуется */
+  padding: 12px 24px; /* Те же отступы, что и у поля ввода */
+  font-size: 1.2em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: auto; /* Высота устанавливается автоматически от отступов */
+  box-sizing: border-box; /* Обеспечиваем совпадение высоты */
+  white-space: nowrap;
+  margin-left: 0.5em; /* Разделение между кнопкой и полем */
+}
 
       /* Mobile layout for the overlay */
       .overlay-half {
