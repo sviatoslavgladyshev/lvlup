@@ -153,87 +153,55 @@
       text-align: left;
     }
 
-    .input-background {
-      position: absolute;
-      width: 100%;              /* Make the background take full width of input */
-      max-width: 400px;         /* Match the max width of the input */
-      height: 48px;
-      border: 2px solid rgb(255, 255, 255);             /* Match the height of the input field */
-      background-color: rgb(255, 255, 255); /* Light gray background */
-      border-radius: 30px;      /* Same rounded corners as the input */
-      z-index: 6;               /* Position behind the input field */
-      top: 7px;                /* Match top position to the email input */
-      left: 0;                  /* Align it with the left edge of the container */
-    }
+    /* Button container styling */
+    .button-container {
+    margin-top: 2em;
+    position: relative;
+    width: 100%; /* Ensure container takes full width */
+    max-width: 400px; /* Set maximum width */
+    height: 48px; /* Container height for consistent sizing */
+  }
 
-    /* Modify button container to be more flexible */
-    /* Modify button container to align input and button */
-/* Modify button container to align input and button */
-/* Button container setup */
-.button-container {
-  margin-top: 2em;
-  position: relative;  /* Ensures child elements are positioned relative to the container */
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  max-width: 400px;    /* Maximum width for the button and input */
-  height: 48px;        /* Ensure both elements have the same height */
-  z-index: 5;
-}
+  /* Updated email input style */
+  .email-input {
+    padding: 12px;
+    font-size: 1.25em;
+    border-radius: 30px; /* Fully rounded corners */
+    border: 2px solid rgba(214, 214, 214, 0.8);
+    background-color: rgba(214, 214, 214, 0.8);
+    outline: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    width: 100%; /* Make input field take full width */
+    color: rgb(0, 0, 0);
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
 
-/* Email input styles */
-.email-input {
-  padding: 12px;
-  font-size: 1.25em;
-  border-radius: 30px;
-  border: 2px solid rgba(214, 214, 214, 0.8);
-  background-color: rgba(214, 214, 214, 0.8);
-  outline: none;
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
-  width: 100%;  /* Make input field take the full width of the container */
-  max-width: 372px;  /* Limit max width to 250px */
-  color: rgb(0, 0, 0);
-  position: absolute;  /* Position the input above the container */
-  z-index: 6;   /* Place input field below the button */
-}
+  /* Fully rounded button styling */
+  .learn-more-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 110%; /* Match button height with container */
+    padding: 0 24px; /* Horizontal padding for the button content */
+    font-size: 1.2em;
+    background: linear-gradient(90deg, #6674f19b, #6c36b79c);
+    color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.681);
+    border-radius: 30px; /* Rounded corners on both sides */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
 
-.email-input:focus {
-  border-color: rgba(142, 142, 142, 0.9);
-  background-color: rgba(228, 227, 227, 0.9);
-}
-
-/* Learn More button styling */
-/* Learn More button styling */
-.learn-more-button {
-  display: flex;                  /* Use flexbox for centering */
-  align-items: center;            /* Center text vertically */
-  justify-content: center;        /* Center text horizontally */
-  padding: 12px 24px;
-  font-size: 1.2em;
-  background: linear-gradient(90deg, #6674f19b, #6c36b79c); /* Gradient from #6674f1 to #6b36b7 */
-  color: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(255, 255, 255, 0.681);
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  position: absolute;             /* Position the button on top of the input field */
-  right: 0;                       /* Align button to the right of the container */
-  width: 121px;                   /* Set a fixed width for the button */
-  height: 50%;                    /* Ensure the button height matches the container */
-  z-index: 7;                     /* Ensure the button is above the input field */
-  white-space: nowrap;            /* Prevent text from wrapping */
-}
-
-/* Hover effect with a slightly lighter gradient */
-.learn-more-button:hover {
-  background: linear-gradient(90deg, #7d88eaa9, #8746b3b0); /* Slightly lighter gradient */
-  color: rgba(255, 255, 255, 0.9);
-}
-
-
-
+  /* Hover effect for Learn More button */
+  .learn-more-button:hover {
+    background: linear-gradient(90deg, #7d88eaa9, #8746b3b0);
+    color: rgba(255, 255, 255, 0.9);
+  }
 
 
     /* Mobile-responsive adjustments */
@@ -360,13 +328,11 @@
       <h1 class="main__title">gamification</h1>
       <h1 class="main__title">to upgrade your</h1>
       <h1 class="main__title">workforce</h1>
-
+  
       <h2>AI powered software to dynamically motivate,</h2>
       <h2>engage, and develop your workforce at scale</h2>
-
-    
+  
       <div class="button-container">
-        <div class="input-background"></div> <!-- Background box behind input -->
         <input type="email" placeholder="Enter your email" class="email-input" id="emailInput">
         <a href="./alpha-join/" class="learn-more-button" onclick="storeEmail()">Learn More</a>
       </div>
