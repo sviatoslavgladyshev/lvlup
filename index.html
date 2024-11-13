@@ -276,11 +276,13 @@
 
   /* Stack images vertically on mobile */
   .image, .image-2 {
-    width: 60vw;
-    max-width: 240px;
-    position: static;
-    margin: 1.5em auto;
+    width: 60vw;             /* Maintain a responsive width */
+    max-width: 240px;        /* Set max-width to avoid images becoming too large */
+    position: relative;      /* Use relative positioning to allow centering */
+    margin: 1.5em auto;      /* Center images horizontally with margin */
+    display: block;          /* Ensure the images behave like block elements for alignment */
   }
+
 
   .button-container {
     justify-content: flex-start;
@@ -318,8 +320,8 @@
       width: 40vw;          /* Keep the original width */
       max-width: 140px;     /* Keep the original max-width */
       position: absolute;
-      top: -2.3vh;               /* Adjust to bring it slightly closer to the top */
-      left: 2.2%;              /* Align with the left edge */
+      top: -2.2vh;               /* Adjust to bring it slightly closer to the top */
+      left: 2.1%;              /* Align with the left edge */
       z-index: 3;
       border-radius: 50px;
     }
