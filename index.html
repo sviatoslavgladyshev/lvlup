@@ -255,15 +255,16 @@
   h2 {
     font-size: 1.15em;         /* Smaller subtitle text size for mobile */
     text-align: left;
-    line-height: 0.2v;
-    margin-top: 20px;  /* Add space before h2 */
+    line-height: 1.0;          /* Reduce line-height to make the text closer together */
+    margin-top: 10px;          /* Reduced space before h2 */
     margin-left: -1em;
     white-space: normal; /* Ensure the text wraps */
     word-wrap: break-word; /* Prevents words from overflowing */
   }
 
+  /* Adjust margin for last h1 element */
   h1.main__title:last-of-type {
-    margin-bottom: 40px;  /* Add bottom margin to separate it from h2 */
+    margin-bottom: 40px;  /* Keep the bottom margin to separate it from h2 */
   }
 
   /* Main text wrapper for mobile */
