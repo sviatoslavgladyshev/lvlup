@@ -129,8 +129,9 @@
       position: relative;
       line-height: 1.3;
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.678),  rgba(0, 0, 0, 0.678)); /* Gradient from pink to blue with some transparency */
-      -webkit-background-clip: text; /* Clips the gradient to the text */
-      color: transparent; /* Makes the actual text color transparent so the gradient shows */
+      background-clip: text; /* Обрезаем фон по тексту */
+      -webkit-background-clip: text; /* Обрезаем фон по тексту для WebKit-браузеров */
+      color: transparent; /* Прозрачный текст */
     }
 
 
@@ -211,7 +212,7 @@
   justify-content: center;        /* Center text horizontally */
   padding: 12px 24px;
   font-size: 1.2em;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.617);
   color: rgba(255, 255, 255, 0.9);
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 30px;
@@ -340,8 +341,8 @@
 
   <div class="main">
     <div class="main__text-wrapper">
-      <h1 class="main__title">Performance</h1>
-      <h1 class="main__title">management</h1>
+      <h1 class="main__title">Intelligent</h1>
+      <h1 class="main__title">gamification</h1>
       <h1 class="main__title">to upgrade your</h1>
       <h1 class="main__title">workforce</h1>
 
