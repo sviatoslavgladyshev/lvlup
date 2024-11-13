@@ -277,36 +277,38 @@
       display: flex;
       align-items: center;
       gap: 8px; /* Space between input and button */
-      width: 100%; /* Ensure full width on mobile */
+      width: 100%; /* Full width on mobile */
       padding-right: 1em; /* Align right edge */
     }
 
-    /* Mobile-specific email input styles */
+    /* Email input for mobile */
     .email-input {
-      flex-grow: 1; /* Allow input to take up available space */
+      flex: 1; /* Make input take up remaining space */
       padding: 12px;
       font-size: 1em;
-      border-radius: 30px; /* Fully rounded corners */
+      border-radius: 30px;
       border: 2px solid rgba(214, 214, 214, 0.8);
       background-color: rgba(214, 214, 214, 0.8);
       outline: none;
       font-family: "Inter", sans-serif;
       font-weight: 300;
       color: rgb(0, 0, 0);
-      box-sizing: border-box; /* Include padding in width calculation */
-      margin-right: 8px; /* Space between input and button */
+      box-sizing: border-box; /* Include padding in width */
+      text-align: left; /* Align text to left */
     }
 
-    /* Adjust learn-more-button to match input height */
+    /* Learn More button for mobile */
     .learn-more-button {
+      flex-shrink: 0; /* Prevent button from shrinking */
       height: 100%; /* Match container height */
-      padding: 0 16px; /* Adjust horizontal padding */
-      font-size: 1em; /* Adjust font size */
+      padding: 0 16px;
+      font-size: 1em;
       display: flex;
       align-items: center;
       justify-content: center;
       white-space: nowrap;
-      border-radius: 30px; /* Fully rounded corners */
+      border-radius: 30px;
+      box-sizing: border-box;
     }
 
   /* Overlay adjustments for mobile */
