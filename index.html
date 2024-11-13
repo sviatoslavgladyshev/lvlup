@@ -274,39 +274,22 @@
 
 
   .button-container {
-      display: flex;
-      align-items: center;
-      gap: 8px; /* Space between input and button */
-      width: 100%; /* Ensure full width on mobile */
+      max-width: none; /* Remove max-width on mobile */
       padding-right: 1em; /* Align right edge */
     }
 
-    /* Mobile-specific email input styles */
+    /* Adjust email input on mobile to take less width */
     .email-input {
-      flex-grow: 1; /* Allow input to take up available space */
-      padding: 12px;
       font-size: 1em;
-      border-radius: 30px; /* Fully rounded corners */
-      border: 2px solid rgba(214, 214, 214, 0.8);
-      background-color: rgba(214, 214, 214, 0.8);
-      outline: none;
-      font-family: "Inter", sans-serif;
-      font-weight: 300;
-      color: rgb(0, 0, 0);
-      box-sizing: border-box; /* Include padding in width calculation */
-      margin-right: 8px; /* Space between input and button */
+      width: 100%; /* Allow input to take up full width in flex container */
+      padding: 12px; /* Adjust padding for mobile */
     }
 
-    /* Adjust learn-more-button to match input height */
+    /* Learn more button to match email input height on mobile */
     .learn-more-button {
-      height: 100%; /* Match container height */
-      padding: 0 16px; /* Adjust horizontal padding */
-      font-size: 1em; /* Adjust font size */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-      border-radius: 30px; /* Fully rounded corners */
+      height: auto; /* Adjust to match input height */
+      font-size: 1em;
+      padding: 0 16px; /* Adjust padding for mobile */
     }
 
   /* Overlay adjustments for mobile */
