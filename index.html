@@ -240,19 +240,15 @@
     @media (max-width: 768px) {
   /* Reduce font sizes and adjust spacing for mobile */
   .main__title {
-    font-size: 2.25em;           /* Smaller font size for mobile */
+    font-size: 2.25em;         /* Smaller font size for mobile */
     text-align: left;
     margin-left: -0.5em;
     line-height: 1.1;
-    margin-top: 50px;         /* Adjust margin for spacing on mobile */
-    background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.6),     /* Adjust gradient opacity for mobile readability */
-      rgba(0, 0, 0, 0.6)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    margin-top: 50px;          /* Adjust margin for spacing on mobile */
+    color: rgba(0, 0, 0, 0.8); /* Set a solid color instead of gradient */
+    background: none;          /* Remove background gradient */
+    -webkit-background-clip: unset;
+    background-clip: unset;
   }
 
   /* Additional adjustments for subtitle text */
@@ -304,7 +300,7 @@
   /* Mobile-specific email input styles */
   .email-input {
     width: 150%;
-    max-width: 321px;
+    max-width: 322px;
     margin-left: -1em;
   }
 
