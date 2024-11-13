@@ -211,8 +211,8 @@
     font-size: 2.25em;         /* Smaller font size for mobile */
     text-align: left;
     margin-left: -0.5em;
-    line-height: 1.2;
-    margin-top: 30px;          /* Adjusted margin-top */
+    line-height: 0vh;
+    margin-top: 50px;          /* Reduced margin-top (70px / 1.5 ≈ 46px) */
     color: rgba(0, 0, 0, 0.678); /* Set a solid color instead of gradient */
     background: none;          /* Remove background gradient */
     -webkit-background-clip: unset;
@@ -225,19 +225,19 @@
     text-align: left;
     line-height: 1.5;          /* Reduce line-height to make the text closer together */
     margin-top: 0px;          /* Reduced space before h2 */
-    margin-left: 0;
+    margin-left: -1em;
     white-space: normal; /* Ensure the text wraps */
     word-wrap: break-word; /* Prevents words from overflowing */
   }
 
   /* Adjust margin for last h1 element */
   h1.main__title:last-of-type {
-    margin-bottom: 20px;  /* Keep the bottom margin to separate it from h2 */
+    margin-bottom: 40px;  /* Keep the bottom margin to separate it from h2 */
   }
 
   /* Main text wrapper for mobile */
   .main__text-wrapper {
-    padding: 1em;
+    padding: 1.2em;
     text-align: left;
     margin-top: 7px;
   }
@@ -254,7 +254,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 60px;
   }
 
   /* Stack images vertically on mobile */
@@ -262,39 +262,39 @@
     width: 60vw;
     max-width: 240px;
     position: static;
-    margin: 1em auto;
+    margin: 1.3em auto;
     border-radius: 40px;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 25%;
+    margin-right: 32%;
   }
   .image-2 {
     margin-top: 1em; /* Move image-2 closer to image by reducing the top margin */
-    margin-bottom: 0;
+    margin-bottom: -2em;
   }
 
 
   .button-container {
     justify-content: flex-start;
     align-items: normal;
-    width: 100%;
-    color: inherit;
+    width: auto;
+    color: transparent;
   }
 
   /* Mobile-specific email input styles */
   .email-input {
-    width: 100%;
+    width: 150%;
     max-width: 324px;
-    margin-left: 0;
+    margin-left: -1em;
   }
 
   .learn-more-button {
     height: 52%;
     padding: 12px 24px;
-    font-size: 1em;
+    font-size: 1.2em;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 25%;
     white-space: nowrap;
   }
 
@@ -351,7 +351,6 @@
   </script>
 </body>
 </html>
-
 
 
 
