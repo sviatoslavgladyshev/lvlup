@@ -274,42 +274,53 @@
 
 
   .button-container {
-      display: flex;
-      align-items: center;
-      gap: 8px; /* Space between input and button */
-      width: 100%; /* Full width on mobile */
-      padding-right: 1em; /* Align right edge */
-    }
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between input and button */
+    width: 100%; /* Full width on mobile */
+    padding-right: 1em; /* Align right edge */
+  }
 
-    /* Email input for mobile */
-    .email-input {
-      flex: 1; /* Make input take up remaining space */
-      padding: 12px;
-      font-size: 1em;
-      border-radius: 30px;
-      border: 2px solid rgba(214, 214, 214, 0.8);
-      background-color: rgba(214, 214, 214, 0.8);
-      outline: none;
-      font-family: "Inter", sans-serif;
-      font-weight: 300;
-      color: rgb(0, 0, 0);
-      box-sizing: border-box; /* Include padding in width */
-      text-align: left; /* Align text to left */
-    }
+  /* Email input for mobile */
+  .email-input {
+    flex: 1; /* Make input take up remaining space */
+    padding: 12px;
+    font-size: 1em;
+    border-radius: 30px;
+    border: 2px solid rgba(214, 214, 214, 0.8);
+    background-color: rgba(214, 214, 214, 0.8);
+    outline: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    color: rgb(0, 0, 0);
+    box-sizing: border-box; /* Include padding in width */
+    text-align: left; /* Align text to left */
+  }
 
-    /* Learn More button for mobile */
-    .learn-more-button {
-      flex-shrink: 0; /* Prevent button from shrinking */
-      height: 100%; /* Match container height */
-      padding: 0 16px;
-      font-size: 1em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-      border-radius: 30px;
-      box-sizing: border-box;
-    }
+  /* Learn More button for mobile */
+  .learn-more-button {
+    flex-shrink: 0; /* Prevent button from shrinking */
+    height: 100%; /* Match container height */
+    padding: 0 16px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 30px;
+    box-sizing: border-box;
+  }
+
+  /* Stack images vertically on mobile */
+  .image, .image-2 {
+    width: 60vw;
+    max-width: 240px;
+    position: static;
+    margin: 1.3em auto;
+    border-radius: 40px;
+    margin-left: 25%;
+    margin-right: 32%;
+  }
 
   /* Overlay adjustments for mobile */
   .overlay-half {
