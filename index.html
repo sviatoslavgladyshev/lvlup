@@ -276,14 +276,15 @@
   .button-container {
     display: flex;
     align-items: center;
-    gap: 8px; /* Space between input and button */
-    width: 100%; /* Full width on mobile */
-    padding-right: 1em; /* Align right edge */
+    justify-content: space-between; /* Space between input and button */
+    width: 100%;
+    max-width: 400px; /* Optional: limits the width of the input/button container */
+    margin: 0 auto; /* Center the container horizontally */
   }
 
   /* Email input for mobile */
   .email-input {
-    flex: 1; /* Make input take up remaining space */
+    flex: 1; /* Makes the input field take up remaining space */
     padding: 12px;
     font-size: 1em;
     border-radius: 30px;
@@ -293,14 +294,14 @@
     font-family: "Inter", sans-serif;
     font-weight: 300;
     color: rgb(0, 0, 0);
-    box-sizing: border-box; /* Include padding in width */
-    text-align: left; /* Align text to left */
+    box-sizing: border-box;
+    text-align: left; /* Ensures text is aligned to the left */
   }
 
   /* Learn More button for mobile */
   .learn-more-button {
-    flex-shrink: 0; /* Prevent button from shrinking */
-    height: 100%; /* Match container height */
+    flex-shrink: 0; /* Prevent shrinking */
+    height: 100%; /* Ensures the button is the same height as the input field */
     padding: 0 16px;
     font-size: 1em;
     display: flex;
@@ -311,7 +312,7 @@
     box-sizing: border-box;
   }
 
-  /* Stack images vertically on mobile */
+  /* Ensure images stack vertically on mobile */
   .image, .image-2 {
     width: 60vw;
     max-width: 240px;
@@ -322,7 +323,7 @@
     margin-right: 32%;
   }
 
-  /* Overlay adjustments for mobile */
+  /* Adjust overlay for mobile */
   .overlay-half {
     height: 50vh;
     transform: skewY(-10deg) translateY(30%);
