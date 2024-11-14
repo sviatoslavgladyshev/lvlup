@@ -208,144 +208,144 @@
     @media (max-width: 768px) {
   /* Reduce font sizes and adjust spacing for mobile */
   .main__title {
-    font-size: 2.25em;         /* Smaller font size for mobile */
-    text-align: left;
-    margin-left: -0.5em;
-    line-height: 0vh;
-    margin-top: 50px;          /* Reduced margin-top (70px / 1.5 ≈ 46px) */
-    color: rgba(0, 0, 0, 0.678); /* Set a solid color instead of gradient */
-    background: none;          /* Remove background gradient */
-    -webkit-background-clip: unset;
-    background-clip: unset;
+  font-size: 2.25em;         /* Smaller font size for mobile */
+  text-align: left;
+  margin-left: -0.5em;
+  line-height: 0vh;
+  margin-top: 50px;          /* Reduced margin-top (70px / 1.5 ≈ 46px) */
+  color: rgba(0, 0, 0, 0.678); /* Set a solid color instead of gradient */
+  background: none;          /* Remove background gradient */
+  -webkit-background-clip: unset;
+  background-clip: unset;
 }
 
-  /* Additional adjustments for subtitle text */
-  h2 {
-    font-size: 1.15em;         /* Smaller subtitle text size for mobile */
-    text-align: left;
-    line-height: 1.5;          /* Reduce line-height to make the text closer together */
-    margin-top: 0px;          /* Reduced space before h2 */
-    margin-left: -1em;
-    white-space: normal; /* Ensure the text wraps */
-    word-wrap: break-word; /* Prevents words from overflowing */
-  }
+/* Additional adjustments for subtitle text */
+h2 {
+  font-size: 1.15em;         /* Smaller subtitle text size for mobile */
+  text-align: left;
+  line-height: 1.5;          /* Reduce line-height to make the text closer together */
+  margin-top: 0px;          /* Reduced space before h2 */
+  margin-left: -1em;
+  white-space: normal; /* Ensure the text wraps */
+  word-wrap: break-word; /* Prevents words from overflowing */
+}
 
-  /* Adjust margin for last h1 element */
-  h1.main__title:last-of-type {
-    margin-bottom: 40px;  /* Keep the bottom margin to separate it from h2 */
-  }
+/* Adjust margin for last h1 element */
+h1.main__title:last-of-type {
+  margin-bottom: 40px;  /* Keep the bottom margin to separate it from h2 */
+}
 
-  /* Main text wrapper for mobile */
-  .main__text-wrapper {
-    padding: 1.2em;
-    text-align: left;
-    margin-top: 7px;
-  }
+/* Main text wrapper for mobile */
+.main__text-wrapper {
+  padding: 1.2em;
+  text-align: left;
+  margin-top: 7px;
+}
 
-  /* Body scroll for mobile */
-  body {
-    min-height: 100%;
-    overflow-y: auto;
-  }
+/* Body scroll for mobile */
+body {
+  min-height: 100%;
+  overflow-y: auto;
+}
 
-  /* Flex adjustments for main container on mobile */
-  .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 60px;
-  }
+/* Flex adjustments for main container on mobile */
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 60px;
+}
 
-  /* Stack images vertically on mobile */
-  .image, .image-2 {
-    width: 60vw;
-    max-width: 240px;
-    position: static;
-    margin: 1.3em auto;
-    border-radius: 40px;
-    margin-left: 25%;
-    margin-right: 32%;
-  }
-  .image-2 {
-    margin-top: 1em; /* Move image-2 closer to image by reducing the top margin */
-    margin-bottom: -2em;
-  }
+/* Stack images vertically on mobile */
+.image, .image-2 {
+  width: 60vw;
+  max-width: 240px;
+  display: block;    /* Ensure images behave as block elements */
+  margin: 1.3em auto; /* Center the images horizontally */
+  border-radius: 40px;
+}
 
+/* Move image-2 closer to image */
+.image-2 {
+  margin-top: 1em;
+  margin-bottom: -2em;
+}
 
-  .button-container {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center horizontally */
-    width: 100%; 
-    max-width: 100%; 
-    gap: 10px;
-    margin-top: 20px; /* Add more space above the button container */
-  }
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+  width: 100%;
+  max-width: 100%;
+  gap: 10px;
+  margin-top: 20px; /* Add more space above the button container */
+}
 
-  /* Adjust the email input styling */
-  .email-input {
-    flex: 1;
-    padding: 12px;
-    font-size: 1em;
-    border-radius: 30px;
-    border: 2px solid rgba(214, 214, 214, 0.8);
-    background-color: rgba(214, 214, 214, 0.8);
-    outline: none;
-    font-family: "Inter", sans-serif;
-    font-weight: 300;
-    color: rgb(0, 0, 0);
-    box-sizing: border-box;
-    width: 70%; /* Adjust width to make it smaller and centered */
-    text-align: left;
-  }
+/* Adjust the email input styling */
+.email-input {
+  flex: 1;
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 30px;
+  border: 2px solid rgba(214, 214, 214, 0.8);
+  background-color: rgba(214, 214, 214, 0.8);
+  outline: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  color: rgb(0, 0, 0);
+  box-sizing: border-box;
+  width: 70%; /* Adjust width to make it smaller and centered */
+  text-align: left;
+}
 
-  /* Adjust button for mobile */
-  .learn-more-button {
-    flex-shrink: 0; /* Prevent shrinking */
-    height: 48px; 
-    padding: 0 16px;
-    font-size: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    border-radius: 30px;
-    box-sizing: border-box;
-  }
+/* Adjust button for mobile */
+.learn-more-button {
+  flex-shrink: 0; /* Prevent shrinking */
+  height: 48px;
+  padding: 0 16px;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 30px;
+  box-sizing: border-box;
+}
 
-  /* Increase spacing between the text and input field */
-  .main__text-wrapper {
-    padding: 1.2em;
-    text-align: left;
-    margin-top: 30px; /* Increase this margin to create more space */
-  }
-  /* Переставляем изображения на мобильной версии */
-  .image, .image-2 {
-    width: 60vw;
-    max-width: 240px;
-    position: static;
-    margin: 1.3em auto;
-    border-radius: 40px;
-  }
+/* Increase spacing between the text and input field */
+.main__text-wrapper {
+  padding: 1.2em;
+  text-align: left;
+  margin-top: 30px; /* Increase this margin to create more space */
+}
 
-  /* Корректируем высоту оверлея */
-  .overlay-half {
-    height: 50vh;
-    transform: skewY(-10deg) translateY(30%);
-  }
+/* Переставляем изображения на мобильной версии */
+.image, .image-2 {
+  width: 60vw;
+  max-width: 240px;
+  display: block; /* Ensuring block-level element */
+  margin: 1.3em auto; /* Center images horizontally */
+  border-radius: 40px;
+}
 
-  /* Restore original top-left position for image-4 */
-  .image-4 {
-      width: 40vw;               /* Keep the original width */
-      max-width: 140px;          /* Keep the original max-width */
-      position: absolute;
-      top: -7.5vh;                /* Increase the top offset to move image-4 higher */
-      left: 2%;                  /* Align with the left edge */
-      z-index: 3;
-      border-radius: 50px;
-      margin-bottom: 40vh;       /* Add more space below image-4 */
-    }
+/* Корректируем высоту оверлея */
+.overlay-half {
+  height: 50vh;
+  transform: skewY(-10deg) translateY(30%);
+}
+
+/* Restore original top-left position for image-4 */
+.image-4 {
+  width: 40vw;               /* Keep the original width */
+  max-width: 140px;          /* Keep the original max-width */
+  position: absolute;
+  top: -7.5vh;                /* Increase the top offset to move image-4 higher */
+  left: 2%;                  /* Align with the left edge */
+  z-index: 3;
+  border-radius: 50px;
+  margin-bottom: 40vh;       /* Add more space below image-4 */
+}
     }
 
   </style>
