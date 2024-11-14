@@ -207,45 +207,10 @@
     /* Mobile-responsive adjustments */
     @media (max-width: 768px) {
   /* Reduce font sizes and adjust spacing for mobile */
-  .main__title {
-    font-size: 2.25em;         /* Smaller font size for mobile */
-    text-align: left;
-    margin-left: -0.5em;
-    line-height: 0vh;
-    margin-top: 50px;          /* Reduced margin-top (70px / 1.5 ≈ 46px) */
-    color: rgba(0, 0, 0, 0.678); /* Set a solid color instead of gradient */
-    background: none;          /* Remove background gradient */
-    -webkit-background-clip: unset;
-    background-clip: unset;
-}
-
-  /* Additional adjustments for subtitle text */
-  h2 {
-    font-size: 1.15em;         /* Smaller subtitle text size for mobile */
-    text-align: left;
-    line-height: 1.5;          /* Reduce line-height to make the text closer together */
-    margin-top: 0px;          /* Reduced space before h2 */
-    margin-left: -1em;
-    white-space: normal; /* Ensure the text wraps */
-    word-wrap: break-word; /* Prevents words from overflowing */
-  }
-
-  /* Adjust margin for last h1 element */
-  h1.main__title:last-of-type {
-    margin-bottom: 40px;  /* Keep the bottom margin to separate it from h2 */
-  }
-
-  /* Main text wrapper for mobile */
   .main__text-wrapper {
     padding: 1.2em;
     text-align: left;
     margin-top: 7px;
-  }
-
-  /* Body scroll for mobile */
-  body {
-    min-height: 100%;
-    overflow-y: auto;
   }
 
   /* Flex adjustments for main container on mobile */
@@ -253,38 +218,23 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start; /* Align everything to the left */
     margin-top: 60px;
   }
-
-  /* Stack images vertically on mobile */
-  .image, .image-2 {
-    width: 60vw;
-    max-width: 240px;
-    position: static;
-    margin: 1.3em auto;
-    border-radius: 40px;
-    margin-left: 25%;
-    margin-right: 32%;
-  }
-  .image-2 {
-    margin-top: 1em; /* Move image-2 closer to image by reducing the top margin */
-    margin-bottom: -2em;
-  }
-
 
   .button-container {
     display: flex;
     align-items: center;
-    width: 100%; /* Make the container full-width */
-    max-width: 100%; /* Remove max-width restriction */
-    gap: 10px; /* Space between the input field and the button */
+    width: 100%; /* Ensure the container takes full width */
+    gap: 10px; /* Add gap between the input field and the button */
     margin: 0 auto; /* Center the container */
+    max-width: 100%; /* Allow the container to take full width */
+    margin-top: 2em; /* Add space above the button container */
   }
 
   /* Email input for mobile */
   .email-input {
-    flex: 1; /* Make input take the full remaining space */
+    flex: 1; /* Make the input take the full remaining space */
     padding: 12px;
     font-size: 1em;
     border-radius: 30px;
@@ -300,10 +250,10 @@
 
   /* Learn More button for mobile */
   .learn-more-button {
-    flex-shrink: 0; /* Запрещаем кнопке уменьшаться */
-    height: 48px; /* Устанавливаем одинаковую высоту для поля ввода и кнопки */
-    padding: 0 16px;
-    font-size: 1em;
+    flex-shrink: 0; /* Prevent the button from shrinking */
+    height: 48px; /* Keep the same height for the button */
+    padding: 0 16px; /* Adjust padding */
+    font-size: 1em; /* Adjust font size */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -312,13 +262,17 @@
     box-sizing: border-box;
   }
 
-  /* Центрируем контейнер с полем ввода и кнопкой */
-  .main__text-wrapper {
-    padding: 2em;
-    text-align: left;
+  /* Center the container with input field and button */
+  .button-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    gap: 10px;
+    margin: 0 auto;
   }
 
-  /* Переставляем изображения на мобильной версии */
+  /* Stack images vertically on mobile */
   .image, .image-2 {
     width: 60vw;
     max-width: 240px;
@@ -327,7 +281,7 @@
     border-radius: 40px;
   }
 
-  /* Корректируем высоту оверлея */
+  /* Adjust overlay height */
   .overlay-half {
     height: 50vh;
     transform: skewY(-10deg) translateY(30%);
