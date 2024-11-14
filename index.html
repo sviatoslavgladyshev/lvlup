@@ -207,34 +207,34 @@
     /* Mobile-responsive adjustments */
     @media (max-width: 768px) {
   /* Reduce font sizes and adjust spacing for mobile */
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  /* Center the content horizontally */
+    margin-top: 60px;
+  }
+
+  /* Adjust text wrapper */
   .main__text-wrapper {
     padding: 1.2em;
     text-align: left;
     margin-top: 7px;
   }
 
-  /* Flex adjustments for main container on mobile */
-  .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start; /* Align everything to the left */
-    margin-top: 60px;
-  }
-
+  /* Button container adjustments */
   .button-container {
     display: flex;
-    align-items: center;
-    width: 100%; /* Ensure the container takes full width */
-    gap: 10px; /* Add gap between the input field and the button */
-    margin: 0 auto; /* Center the container */
-    max-width: 100%; /* Allow the container to take full width */
-    margin-top: 2em; /* Add space above the button container */
+    flex-direction: column;  /* Stack input and button vertically */
+    align-items: center;     /* Center content horizontally */
+    width: 100%;             /* Ensure it takes full width */
+    max-width: 400px;        /* Limit the max width */
+    margin-top: 2em;
   }
 
   /* Email input for mobile */
   .email-input {
-    flex: 1; /* Make the input take the full remaining space */
+    width: 100%;               /* Make input field take full width */
     padding: 12px;
     font-size: 1em;
     border-radius: 30px;
@@ -244,32 +244,33 @@
     font-family: "Inter", sans-serif;
     font-weight: 300;
     color: rgb(0, 0, 0);
-    box-sizing: border-box; /* Include padding in width calculation */
-    text-align: left; /* Align text to the left inside the input field */
+    box-sizing: border-box;
+    text-align: left;          /* Align text to the left inside the input */
   }
 
   /* Learn More button for mobile */
   .learn-more-button {
-    flex-shrink: 0; /* Prevent the button from shrinking */
-    height: 48px; /* Keep the same height for the button */
-    padding: 0 16px; /* Adjust padding */
-    font-size: 1em; /* Adjust font size */
+    width: 100%;               /* Make button take full width */
+    height: 48px;              /* Ensure button and input have the same height */
+    padding: 0 16px;
+    font-size: 1em;
     display: flex;
     align-items: center;
     justify-content: center;
     white-space: nowrap;
     border-radius: 30px;
     box-sizing: border-box;
+    background: linear-gradient(90deg, #6674f19b, #6c36b79c);
+    color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.681);
+    transition: all 0.3s ease;
+    text-decoration: none;
   }
 
-  /* Center the container with input field and button */
-  .button-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-    gap: 10px;
-    margin: 0 auto;
+  /* Hover effect for Learn More button */
+  .learn-more-button:hover {
+    background: linear-gradient(90deg, #7d88eaa9, #8746b3b0);
+    color: rgba(255, 255, 255, 0.9);
   }
 
   /* Stack images vertically on mobile */
@@ -281,11 +282,12 @@
     border-radius: 40px;
   }
 
-  /* Adjust overlay height */
+  /* Center the overlay height adjustment */
   .overlay-half {
     height: 50vh;
     transform: skewY(-10deg) translateY(30%);
   }
+
 
   /* Restore original top-left position for image-4 */
   .image-4 {
