@@ -276,15 +276,16 @@
   .button-container {
     display: flex;
     align-items: center;
-    width: 100%; /* Make the container full-width */
-    max-width: 100%; /* Remove max-width restriction */
-    gap: 10px; /* Space between the input field and the button */
-    margin: 0 auto; /* Center the container */
+    justify-content: center; /* Center horizontally */
+    width: 100%; 
+    max-width: 100%; 
+    gap: 10px;
+    margin-top: 20px; /* Add more space above the button container */
   }
 
-  /* Email input for mobile */
+  /* Adjust the email input styling */
   .email-input {
-    flex: 1; /* Make input take the full remaining space */
+    flex: 1;
     padding: 12px;
     font-size: 1em;
     border-radius: 30px;
@@ -294,14 +295,15 @@
     font-family: "Inter", sans-serif;
     font-weight: 300;
     color: rgb(0, 0, 0);
-    box-sizing: border-box; /* Include padding in width calculation */
-    text-align: left; /* Align text to the left inside the input field */
+    box-sizing: border-box;
+    width: 70%; /* Adjust width to make it smaller and centered */
+    text-align: left;
   }
 
-  /* Learn More button for mobile */
+  /* Adjust button for mobile */
   .learn-more-button {
-    flex-shrink: 0; /* Запрещаем кнопке уменьшаться */
-    height: 48px; /* Устанавливаем одинаковую высоту для поля ввода и кнопки */
+    flex-shrink: 0; /* Prevent shrinking */
+    height: 48px; 
     padding: 0 16px;
     font-size: 1em;
     display: flex;
@@ -312,12 +314,12 @@
     box-sizing: border-box;
   }
 
-  /* Центрируем контейнер с полем ввода и кнопкой */
+  /* Increase spacing between the text and input field */
   .main__text-wrapper {
-    padding: 2em;
+    padding: 1.2em;
     text-align: left;
+    margin-top: 30px; /* Increase this margin to create more space */
   }
-
   /* Переставляем изображения на мобильной версии */
   .image, .image-2 {
     width: 60vw;
