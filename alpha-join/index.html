@@ -160,57 +160,46 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const email = localStorage.getItem("userEmail");
-      if (email) {
-        console.log("User email: " + email);
-      }
+        const email = localStorage.getItem("userEmail");
+        if (email) {
+            console.log("User email: " + email);
+        }
     });
 
     async function submitData() {
-      const formData = {
+    const formData = {
         company: document.getElementById("company").value,
         first_name: document.getElementById("firstName").value,
         last_name: document.getElementById("lastName").value,
         size: document.getElementById("size").value
-      };
+    };
 
-      try {
+    try {
         const response = await fetch('https://xlxfqrcvs0.execute-api.us-east-1.amazonaws.com/dev/saveData', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
         });
 
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
+        // Log the status and response for debugging
+        console.log(`Response status: ${response.status}`);
         const result = await response.json();
-        document.getElementById("responseMessage").textContent = result;
+        console.log('Response body:', result);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        document.getElementById("responseMessage").textContent = "Thank you for submitting the form. Your data has been successfully recorded!";
         document.getElementById("companyForm").reset();
-
-        const emailResponse = await fetch('https://jxcahwdfi1.execute-api.us-east-1.amazonaws.com/dev/sendEmail', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            to: formData.first_name + " " + formData.last_name,
-            email: localStorage.getItem("userEmail"),
-            subject: "Engage Your Sales Team With a Gamified Performance Platform",
-            message: "Boost engagement for entry-level sales reps through a gaming platform where reps can compete, learn, and level up"
-          })
-        });
-
-        if (!emailResponse.ok) throw new Error(`Email HTTP error! status: ${emailResponse.status} - ${await emailResponse.text()}`);
-
-        console.log("Email sent successfully");
-      } catch (error) {
+    } catch (error) {
         console.error('Error during submission:', error);
         document.getElementById("responseMessage").textContent = "There was an error submitting the form. Please try again.";
-      }
     }
-  </script>
+}
+</script>
 </body>
 </html>
 
