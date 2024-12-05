@@ -228,7 +228,7 @@
                 const loginResult = await cognito.initiateAuth(authParams).promise();
                 const idToken = loginResult.AuthenticationResult.IdToken;
                 localStorage.setItem('idToken', idToken);
-                window.location.href = '../home/index.html';
+                window.location.href = '../home/';
             } catch (error) {
                 showError('loginError', error.message);
             } finally {
@@ -333,7 +333,7 @@
                 <div class="spinner"></div>
             </button>
             <a href="#" class="forgot-password" onclick="showForm('resetForm')">Forgot Password?</a><br>
-            <p class="no-account">No account? <a href="../signup/index.html" class="no-account-signup">Sign up</a></p>
+            <p class="no-account">No account? <a href="../signup/" class="no-account-signup">Sign up</a></p>
         </form>
         
         <form id="resetForm" onsubmit="forgotPassword(event)">
