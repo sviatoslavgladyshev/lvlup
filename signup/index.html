@@ -242,6 +242,18 @@
             0%, 100% { transform: translate(0, 0); }
             50% { transform: translate(30px, -30px); }
         }
+        .go-back-signup {
+            display: inline-block;
+            margin-top: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s ease all;
+        }
+
+        .go-back-signup:hover {
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -297,7 +309,8 @@
                     <div class="spinner"></div>
                 </button>
             </form>
-            <div class="resend-code" onclick="resendVerificationCode()">Resend verification code</div>
+            <div class="resend-code" onclick="resendVerificationCode()">Resend verification code</a>
+            <a href="../signup/" class="go-back-signup">< Go Back to Sign Up</button>
         </div>
     </div>
 
@@ -306,7 +319,7 @@
         const cognito = new AWS.CognitoIdentityServiceProvider();
 
         const userPoolId = 'us-east-1_uKIraXNQg';
-        const clientId = '4p9udg72onl3movcn1cjd78llg';
+        const clientId = '4p9udg72onl3movcn1cjd78llg'; // Correct ClientId
 
         function togglePasswordVisibility() {
             const passwordInputs = document.querySelectorAll('#password, #confirm-password');
@@ -413,9 +426,29 @@
                     ConfirmationCode: verificationCode
                 };
                 await cognito.confirmSignUp(confirmParams).promise();
+
+                // Automatically sign the user in after successful verification
+                const loginParams = {
+                    AuthFlow: 'USER_PASSWORD_AUTH',
+                    ClientId: clientId,
+                    AuthParameters: {
+                        USERNAME: name,
+                        PASSWORD: document.getElementById('password').value // Use the password entered during sign-up
+                    }
+                };
+
+                const loginResponse = await cognito.initiateAuth(loginParams).promise();
+                
+                // Store the ID token and refresh token locally for maintaining session
+                localStorage.setItem('idToken', loginResponse.AuthenticationResult.IdToken);
+                localStorage.setItem('refreshToken', loginResponse.AuthenticationResult.RefreshToken);
+                localStorage.setItem('accessToken', loginResponse.AuthenticationResult.AccessToken);
+
+                // Navigate to home/index.html
                 window.location.href = '../home/';
             } catch (error) {
                 alert('Verification failed: ' + error.message);
+                
                 // Clear verification inputs on failure
                 verificationInputs.forEach(input => input.value = '');
                 verificationInputs[0].focus();

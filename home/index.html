@@ -3,1160 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>LVLUP. Employer Code</title>
     <link rel="icon" href="../images/lvlup_logo.png">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: rgb(1, 3, 57);
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: white;
-            border-radius: 10px;
-            padding: 10px 20px;
-            margin-bottom: 20px;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        .logo-icon {
-            background-color: #47cbff;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-right: 6px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        .logo span {
-            color: #333;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        .nav-tabs {
-            display: flex;
-            background-color: #f0f0f0;
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 0 20px;
-        }
-        .nav-tabs button {
-            background-color: transparent;
-            border: none;
-            color: #333;
-            padding: 8px 16px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        .nav-tabs button.active {
-            background-color: rgb(1, 3, 57);
-            color: white;
-        }
-        .header-buttons {
-            display: flex;
-        }
-        .header-buttons button {
-            background-color: rgb(1, 3, 57);
-            border: none;
-            color: white;
-            padding: 8px 16px;
-            margin-left: 10px;
-            cursor: pointer;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        .dashboard {
-            display: flex;
-            gap: 20px;
-            height: calc(100vh - 140px);
-        }
-        .left-column, .right-column {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .left-column {
-            flex: 0 0 35%;
-        }
-        .right-column {
-            flex: 1;
-        }
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-        }
-        .top-performers {
-            flex: 1;
-            min-height: 300px;
-        }
-        .employees-table {
-            flex: 2;
-            min-height: 300px;
-        }
-        .company-score {
-            flex: 1;
-            min-height: 200px;
-        }
-        .performance-insights {
-            flex: 1;
-            min-height: 600px;
-        }
-        .card h2 {
-            margin-top: 0;
-            color: #333;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        .score-container {
-            position: relative;
-            width: 200px;
-            margin: 0 auto;
-        }
-        .score-content {
-            position: absolute;
-            margin-top: 10px;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-        }
-        .score {
-            font-size: 48px;
-            font-weight: bold;
-            color: #333;
-        }
-        .score-label {
-            font-size: 18px;
-            color: #666;
-        }
-        .weekly-change {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 50px;
-        }
-        .change-label {
-            display: flex;
-            align-items: center;
-        }
-        .change-icon {
-            width: 5px;
-            border-radius: 5px;
-            height: 30px;
-            background-color: #f44336;
-            margin-right: 10px;
-        }
-        .change-value {
-            color: #333;
-            font-weight: bold;
-        }
-        .performance-chart {
-            flex: 1;
-            min-height: 300px;
-            margin-bottom: 20px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-        }
-        .chart-container {
-            width: 100%;
-            height: 100%;
-        }
-        .axis {
-            stroke: #dee2e6;
-            stroke-width: 1;
-        }
-        .axis-label {
-            fill: #6c757d;
-            font-size: 12px;
-        }
-        .data-line {
-            fill: none;
-            stroke-width: 2;
-        }
-        .data-point {
-            fill: #fff;
-            stroke-width: 2;
-        }
-        .line1 {
-            stroke: #4a90e2;
-        }
-        .line2 {
-            stroke: #e24a8d;
-        }
-        .chart-legend {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin: 0 10px;
-        }
-        .legend-color {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
-        .insights table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .insights th, .insights td {
-            text-align: left;
-            padding: 10px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .insights th {
-            color: #888;
-            font-weight: normal;
-        }
-        .green-bar, .yellow-bar, .golden-bar, .silver-bar, .bronze-bar {
-            display: inline-block;
-            border-radius: 5px;
-            width: 5px;
-            height: 30px;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-        .green-bar {
-            background-color: #4caf50;
-        }
-        .yellow-bar {
-            background-color: #d8c515;
-        }
-        .golden-bar {
-            background-color: gold;
-        }
-        .silver-bar {
-            background-color: silver;
-        }
-        .bronze-bar {
-            background-color: #CD7F32;
-        }
-        .change-up {
-            color: #4caf50;
-            font-weight: bold;
-        }
-        .change-down {
-            color: #d8c515;
-            font-weight: bold;
-        }
-        .performer {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #f0f0f0;
-            padding: 10px 0;
-        }
-        .performer:last-child {
-            border-bottom: none;
-        }
-        .performer img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-        .performer-name {
-            flex-grow: 1;
-            color: #333;
-        }
-        .performer-xp {
-            font-weight: bold;
-            color: #333;
-        }
-        .more-performers {
-            background-color: rgb(1, 3, 57);
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: auto;
-        }
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgb(1, 3, 57);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease-out;
-        }
+        @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;1,500&display=swap");
 
-        .preloader.fade-out {
-            opacity: 0;
-        }
-
-        .loader {
-            width: 100px;
-            height: 100px;
-            position: relative;
-            perspective: 800px;
-        }
-
-        .cube {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            transform-style: preserve-3d;
-            animation: rotate 4s infinite linear;
-        }
-
-        .cube-face {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-color: rgba(134, 25, 206, 0.8);
-            border: 2px solid white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .cube-face img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-            opacity: 0.8;
-        }
-
-        .cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(50px); }
-        .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(50px); }
-        .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(50px); }
-        .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(50px); }
-        .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(50px); }
-        .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(50px); }
-
-        @keyframes rotate {
-            0% { transform: rotateX(0deg) rotateY(0deg); }
-            100% { transform: rotateX(360deg) rotateY(360deg); }
-        }
-
-        .loading-text {
-            position: absolute;
-            bottom: 20px;
-            font-size: 18px;
-            color: white;
-            text-align: center;
-        }
-
-        .loading-text:after {
-            content: '...';
-            animation: dots 1.5s steps(5, end) infinite;
-        }
-
-        @keyframes dots {
-            0%, 20% { content: '.'; }
-            40% { content: '..'; }
-            60% { content: '...'; }
-            80%, 100% { content: ''; }
-        }
-        .dashboard {
-            opacity: 0;
-            transition: opacity 0.5s ease-in;
-        }
-        .dashboard.fade-in {
-            opacity: 1;
-        }
-        .tab-content {
-            display: none;
-            width: 100%;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        .tab-content.active {
-            display: flex;
-            gap: 20px;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Add a transition for the tab buttons */
-        .nav-tabs button {
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .employee-tab-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            width: 100%;
-        }
-
-        .employee-overview {
-            grid-column: 1 / 2;
-            grid-row: 1 / 2;
-        }
-
-        .employee-activity {
-            grid-column: 2 / 3;
-            grid-row: 1 / 2;
-        }
-
-        .employees-table {
-            grid-column: 1 / -1;
-            grid-row: 2 / 3;
-        }
-        #employeeTable {
-            width: 100%;
-            min-width: 800px; /* Ensure table doesn't shrink too much on smaller screens */
-        }
-
-        #employeeTable th, #employeeTable td {
-            text-align: left;
-            padding: 12px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        #employeeTable th {
-            background-color: #f8f8f8;
-            font-weight: bold;
-            color: #333;
-        }
-
-        #employeeTable tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        .avatar {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-
-        .rank {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            line-height: 24px;
-            text-align: center;
-            border-radius: 50%;
-            font-weight: bold;
-            color: white;
-        }
-
-        .rank.gold { background-color: gold; }
-        .rank.silver { background-color: silver; }
-        .rank.bronze { background-color: #cd7f32; }
-
-        .progress-bar {
-            width: 100px;
-            height: 10px;
-            background-color: #e0e0e0;
-            border-radius: 5px;
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        .progress-bar div {
-            height: 100%;
-            background-color: #4caf50;
-            border-radius: 5px;
-        }
-
-        .trend {
-            font-weight: bold;
-        }
-
-        .trend.up { color: #4caf50; }
-        .trend.down { color: #f44336; }
-        .trend.neutral { color: #ffa000; }
-
-        #viewAllEmployees {
-            display: block;
-            margin: 20px auto 0;
-            padding: 10px 20px;
-            background-color: #4a90e2;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #viewAllEmployees:hover {
-            background-color: #3a7bc8;
-        }
-        @media (min-width: 1440px) {
-            .container {
-                max-width: 1400px;
-            }
-            .dashboard {
-                max-height: 1000px;
-            }
-            .left-column {
-                max-width: 450px;
-            }
-            .score-container {
-                max-width: 350px;
-                max-height: 350px;
-            }
-        }
-        @media (min-width: 1920px) {
-            .container {
-                max-width: 1800px;
-            }
-            .dashboard {
-                max-height: 1200px;
-            }
-            .left-column {
-                max-width: 500px;
-            }
-            .score-container {
-                max-width: 400px;
-                max-height: 400px;
-            }
-        }
-        .employee-stats {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
-        }
-        .stat-box {
-            text-align: center;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-        }
-        .stat-value {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-        }
-        .stat-label {
-            font-size: 14px;
-            color: #666;
-        }
-        .chart-container {
-            width: 100%;
-            height: 300px;
-        }
-        .employee-overview {
-            min-height: 130px;
-        }
-        .employee-activity {
-            min-height: 130px;
-        }
-        .date-range-button {
-            background-color: rgb(1, 3, 57);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        /* Admin Panel Styles */
-        #admin {
-            width: 100%;
-            height: auto;
-            overflow: visible;
-        }
-
-        #admin .card {
-            width: 100%;
-            height: auto;
-            overflow: visible;
-            padding: 24px;
+        * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        .code-management, .file-upload-section {
-            background-color: #f8f9fa;
-            border-radius: 6px;
-            padding: 20px;
-            margin-bottom: 24px;
-        }
-
-        #admin .card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 24px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        #admin h2 {
-            color: #333333;
-            font-size: 24px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        #admin h3 {
-            color: #555555;
-            font-size: 18px;
-            margin-top: 24px;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-
-        .code-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        #admin .btn-primary {
-            background-color: #4a90e2;
+        body {
+            background: linear-gradient(#3800e7, #8a15ff);
+            height: 100vh;
+            font-family: "DM Mono", monospace;
+            font-weight: 300;
             color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        #admin .btn-primary:hover {
-            background-color: #3a7bc8;
-        }
-
-        #admin input[type="text"], #admin select {
-            padding: 8px 12px;
-            border: 1px solid #ced4da;
-            border-radius: 4px;
-            font-size: 14px;
-            width: 200px;
-        }
-
-        #codeStatus {
-            margin-top: 12px;
-            font-weight: 500;
-            color: #28a745;
-        }
-
-        .code-item {
-            background-color: #ffffff;
-            padding: 12px;
-            margin-bottom: 8px;
-            border-radius: 4px;
-            border: 1px solid #e9ecef;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+        }
+        #activeCodesList {
+            max-height: 300px; /* Limit height to prevent overflow */
+            overflow-y: auto; /* Enable vertical scrolling if content overflows */
+            margin-top: 1rem;
+            width: 100%; /* Ensure the list takes the full width of the container */
+            padding: 0.5rem;
+            box-sizing: border-box; /* Include padding in width calculations */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            max-height: 90vh; /* Prevent the container from overflowing the viewport */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distribute space evenly */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 1rem;
+        }
+        section {
+            margin: 1.5rem 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
         }
 
-        .code-item button {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 4px 8px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 12px;
-        }
-
-        .assignment-options {
-            margin-bottom: 16px;
-        }
-
-        .assignment-options label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: #555555;
-        }
-
-        #drop-area {
-            border: 2px dashed #ced4da;
-            border-radius: 6px;
-            padding: 32px;
-            text-align: center;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-
-        #drop-area:hover {
-            border-color: #4a90e2;
-        }
-
-        #drop-area p {
-            margin: 0;
-            color: #6c757d;
-            font-size: 14px;
-        }
-
-        #upload-button {
-            display: block;
+        button {
             width: 100%;
-            padding: 12px;
-            background-color: #28a745;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.2);
             color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: 500;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-family: "DM Mono", monospace;
+            font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.2s;
-            margin-top: 16px;
+            transition: 0.3s ease all;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        #upload-button:hover {
-            background-color: #218838;
+        button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
-        #upload-button:disabled {
-            background-color: #6c757d;
-            cursor: not-allowed;
-        }
-
-        #result {
-            margin-top: 16px;
-            padding: 16px;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            border: 1px solid #e9ecef;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 13px;
-            line-height: 1.4;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-        .assignment-options {
-            margin-bottom: 15px;
-        }
-        
-        .assignment-options select {
-            margin-left: 10px;
-            padding: 5px;
-        }
-        
-        #employeeSelect {
-            display: none;
-            margin-top: 10px;
-        }
         .spinner {
-            display: inline-block;
+            display: none;
             width: 20px;
             height: 20px;
-            border: 2px solid rgba(255,255,255,.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             border-top-color: #fff;
             animation: spin 1s ease-in-out infinite;
-            -webkit-animation: spin 1s ease-in-out infinite;
             margin-left: 10px;
-            vertical-align: middle;
+        }
+
+        button.loading .spinner {
+            display: inline-block;
+        }
+
+        button.loading .button-text {
+            display: none;
         }
 
         @keyframes spin {
-            to { -webkit-transform: rotate(360deg); }
-        }
-        @-webkit-keyframes spin {
-            to { -webkit-transform: rotate(360deg); }
+            to { transform: rotate(360deg); }
         }
 
-        .btn-loading {
-            opacity: 0.7;
-            cursor: not-allowed;
+        pre {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: "DM Mono", monospace;
+            color: white;
+            margin-top: 1rem;
+            overflow: auto;
         }
-        #employeeLeadsDashboard {
-        margin-top: 20px;
-    }
-    .employee-section {
-        background-color: #4285f4;
-        color: white;
-        padding: 10px;
-        margin-top: 20px;
-    }
-    .lead {
-        background-color: #f8f9fa;
-        border: 1px solid #dee2e6;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-    .lead-header {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 5px;
-    }
-    .lead-name {
-        font-weight: bold;
-    }
-    .lead-id {
-        color: #6c757d;
-    }
-    .lead-contact {
-        margin-bottom: 5px;
-    }
-    .pass-status {
-        display: inline-block;
-        padding: 2px 5px;
-        margin-right: 5px;
-        border-radius: 3px;
-        font-size: 12px;
-    }
-    .not-completed {
-        background-color: #ffeeba;
-        color: #856404;
-    }
-    .completed {
-        background-color: #d4edda;
-        color: #155724;
-    }
-    .actions {
-        margin-top: 5px;
-        font-size: 14px;
-        color: #6c757d;
-    }
+
+        .code-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-item button {
+            flex-shrink: 0;
+            width: auto;
+            margin-left: 1rem;
+        }
+        .btn-secondary {
+            padding: 0.2rem 0.1rem;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            font-family: "DM Mono", monospace;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: 0.3s ease all;
+            margin-bottom: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(1px);
+        }
     </style>
 </head>
 <body>
-    <div class="preloader">
-        <div class="loader">
-            <div class="cube">
-                <div class="cube-face"><img src="../images/lvlup_logo.png" alt="Logo"></div>
-                <div class="cube-face"><img src="../images/lvlup_logo.png" alt="Logo"></div>
-                <div class="cube-face"><img src="../images/lvlup_logo.png" alt="Logo"></div>
-                <div class="cube-face"><img src="../images/lvlup_logo.png" alt="Logo"></div>
-                <div class="cube-face"><img src="../images/lvlup_logo.png" alt="Logo"></div>
-                <div class="cube-face"><img src="../images/lvlup_logo.png" alt="Logo"></div>
-            </div>
-        </div>
-        <div class="loading-text">Loading</div>
-    </div>
-
-
     <div class="container">
-        <header class="header">
-            <div class="logo">
-                <span class="logo-icon">U</span>
-                <span id="username"></span>
-            </div>
-            <nav class="nav-tabs">
-                <button class="active" data-tab="overview">Overview</button>
-                <button data-tab="employee">Employee</button>
-                <button data-tab="admin">Admin</button>
-            </nav>
-            <div class="header-buttons">
-                <button>Company</button>
-                <button id="dateRangeButton" class="date-range-button"></button>
+        <header>
+            <h1>Employer Code Management</h1>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+                <strong>My account:</strong>
+                <span id="username" style="font-weight: bold; color: #ffdd00; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); font-size: 1.2rem;">Loading...</span>
+                <button id="signOutButton" onclick="signOut()" class="btn-secondary" style="width: 5rem; padding: 0.5rem;">Sign Out</button>
             </div>
         </header>
 
-        <div class="dashboard">
-            <div class="tab-content active" id="overview">
-                <div class="left-column">
-                    <div class="card company-score">
-                        <h2>Company Score</h2>
-                        <div class="score-container" style="margin-top: 30px;">
-                            <svg width="200" height="120" viewBox="0 0 200 100">
-                                <path d="M10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#e0e0e0" stroke-width="20"/>
-                                <path d="M10 90 A 90 90 0 0 1 190 90" fill="none" stroke="#4caf50" stroke-width="20" stroke-dasharray="283 283" stroke-dashoffset="39.62"/>
-                            </svg>
-                            <div class="score-content">
-                                <div class="score">86</div>
-                                <div class="score-label">Very Good</div>
-                            </div>
-                        </div>
-                        <div class="weekly-change">
-                            <div class="change-label" style="margin-top: 10px;">
-                                <div class="change-icon"></div>
-                                Weekly Change
-                            </div>
-                            <div class="change-value" style="margin-top: 10px;">↓ 2 points</div>
-                        </div>
-                    </div>
+        <section>
+            <h2>Generate Code</h2>
+            <button id="generateCodeBtn" class="btn-primary" onclick="generateCompanyCode()">
+                <span class="button-text">Generate New Company Code</span>
+                <div class="spinner"></div>
+            </button>
+            <!-- <pre id="generateResponse">Response will appear here...</pre> -->
+        </section>
 
-                    <div class="card top-performers">
-                        <h2>Top Performers</h2>
-                        <div class="performer">
-                            <span class="golden-bar"></span>
-                            <img src="../images/RC-Profile-Square.jpg" alt="Matty Temple">
-                            <span class="performer-name">Matty Temple</span>
-                            <span class="performer-xp">81,660 xp</span>
-                        </div>
-                        <div class="performer">
-                            <span class="silver-bar"></span>
-                            <img src="../images/images-2.jpeg" alt="Bryan Sonnie">
-                            <span class="performer-name">Bryan Sonnie</span>
-                            <span class="performer-xp">78,445 xp</span>
-                        </div>
-                        <div class="performer">
-                            <span class="bronze-bar"></span>
-                            <img src="../images/Bechtel_Profile_Square.jpg" alt="Lovel Thorburn">
-                            <span class="performer-name">Lovel Thorburn</span>
-                            <span class="performer-xp">71,800 xp</span>
-                        </div>
-                        <button id="morePerformersBtn" class="more-performers">More Performers...</button>
-                    </div>
-                </div>
-
-                <div class="right-column">
-                    <div class="card performance-insights">
-                        <h2>Performance</h2>
-                        <div class="performance-chart">
-                            <div class="chart-container">
-                                <svg width="100%" height="100%" viewBox="0 0 600 300">
-                                    <!-- X and Y axes -->
-                                    <line class="axis" x1="50" y1="250" x2="550" y2="250" />
-                                    <line class="axis" x1="50" y1="250" x2="50" y2="50" />
-                                    
-                                    <!-- X-axis labels -->
-                                    <text class="axis-label" x="50"  y="<text class="axis-label" x="50" y="270" text-anchor="middle">8/2</text>
-                                    <text class="axis-label" x="200" y="270" text-anchor="middle">8/9</text>
-                                    <text class="axis-label" x="350" y="270" text-anchor="middle">8/16</text>
-                                    <text class="axis-label" x="500" y="270" text-anchor="middle">8/23</text>
-                                    
-                                    <!-- Y-axis labels -->
-                                    <text class="axis-label" x="40" y="250" text-anchor="end">0</text>
-                                    <text class="axis-label" x="40" y="190" text-anchor="end">500K</text>
-                                    <text class="axis-label" x="40" y="130" text-anchor="end">1M</text>
-                                    <text class="axis-label" x="40" y="70" text-anchor="end">1.5M</text>
-                                    
-                                    <!-- Data lines -->
-                                    <path class="data-line line1" d="M50,200 L200,150 L350,180 L500,100" />
-                                    <path class="data-line line2" d="M50,180 L200,220 L350,120 L500,170" />
-                                    
-                                    <!-- Data points -->
-                                    <circle class="data-point line1" cx="50" cy="200" r="4" />
-                                    <circle class="data-point line1" cx="200" cy="150" r="4" />
-                                    <circle class="data-point line1" cx="350" cy="180" r="4" />
-                                    <circle class="data-point line1" cx="500" cy="100" r="4" />
-                                    
-                                    <circle class="data-point line2" cx="50" cy="180" r="4" />
-                                    <circle class="data-point line2" cx="200" cy="220" r="4" />
-                                    <circle class="data-point line2" cx="350" cy="120" r="4" />
-                                    <circle class="data-point line2" cx="500" cy="170" r="4" />
-                                </svg>
-                            </div>
-                        </div>
-                        <h2>Insights</h2>
-                        <div class="insights">
-                            <table>
-                                <tr>
-                                    <th></th>
-                                    <th>This Week</th>
-                                    <th>Last Week</th>
-                                    <th>Change</th>
-                                </tr>
-                                <tr>
-                                    <td><span class="green-bar"></span>Total Sales</td>
-                                    <td>$7,680</td>
-                                    <td>$5,771</td>
-                                    <td class="change-up">↑ 13.1%</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="green-bar"></span>Total XP</td>
-                                    <td>96,425</td>
-                                    <td>100</td>
-                                    <td class="change-up">↑ 21.0%</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="yellow-bar"></span>Employee Growth</td>
-                                    <td>0.1%</td>
-                                    <td>0.3%</td>
-                                    <td class="change-down">↓ 66.6%</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="employee">
-                <div class="employee-tab-content">
-                    <div class="card employee-overview">
-                        <h2>Employee Overview</h2>
-                        <div class="employee-stats">
-                            <div class="stat-box">
-                                <div class="stat-value">152</div>
-                                <div class="stat-label">Total Employees</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-value">87%</div>
-                                <div class="stat-label">Engagement Rate</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-value" style="color: #4caf50;">15%</div>
-                                <div class="stat-label">Company Rate of XP Change</div>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div class="card employee-activity">
-                        <h2>Recent Activity</h2>
-                        <ul class="activity-list">
-                            <li>Matty Temple completed the "Advanced Leadership" course 2 hours ago</li>
-                            <li>Bryan Sonnie reached 75,000 XP milestone 1 day ago</li>
-                            <li>Sarah Johnson started "Project Management Basics" 3 days ago</li>
-                        </ul>
-                    </div>
-
-
-                    <div class="card employees-table">
-                        <h2>Employees</h2>
-                        <table id="employeeTable">
-                            <thead>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Name</th>
-                                    <th>XP</th>
-                                    <th>Engagement</th>
-                                    <th>Trend</th>
-                                </tr>
-                            </thead>
-                            <tbody id="employeeData">
-                                <tr>
-                                    <td><span class="rank gold">1</span></td>
-                                    <td>
-                                        <img src="../images/avatar1.jpg" alt="Matty Temple" class="avatar">
-                                        Matty Temple
-                                    </td>
-                                    <td>81,660</td>
-                                    <td><div class="progress-bar"><div style="width:98%"></div></div> 98%</td>
-                                    <td><span class="trend up">↑ 2%</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="rank silver">2</span></td>
-                                    <td>
-                                        <img src="../images/avatar2.jpg" alt="Bryan Sonnie" class="avatar">
-                                        Bryan Sonnie
-                                    </td>
-                                    <td>78,445</td>
-                                    <td><div class="progress-bar"><div style="width:95%"></div></div> 95%</td>
-                                    <td><span class="trend up">↑ 1%</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="rank bronze">3</span></td>
-                                    <td>
-                                        <img src="../images/avatar3.jpg" alt="Lovel Thorburn" class="avatar">
-                                        Lovel Thorburn
-                                    </td>
-                                    <td>71,800</td>
-                                    <td><div class="progress-bar"><div style="width:93%"></div></div> 93%</td>
-                                    <td><span class="trend down">↓ 1%</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="rank">4</span></td>
-                                    <td>
-                                        <img src="../images/avatar4.jpg" alt="Sarah Johnson" class="avatar">
-                                        Sarah Johnson
-                                    </td>
-                                    <td>68,920</td>
-                                    <td><div class="progress-bar"><div style="width:91%"></div></div> 91%</td>
-                                    <td><span class="trend up">↑ 3%</span></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="rank">5</span></td>
-                                    <td>
-                                        <img src="../images/avatar5.jpg" alt="Mike Chen" class="avatar">
-                                        Mike Chen
-                                    </td>
-                                    <td>65,500</td>
-                                    <td><div class="progress-bar"><div style="width:89%"></div></div> 89%</td>
-                                    <td><span class="trend neutral">-</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button id="viewAllEmployees" class="btn-primary">View All Employees</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="admin">
-                <div class="card" style="width: 100%;">
-                    <h2>Admin Panel</h2>
-                    <div class="code-management">
-                        <h3>Company Code Management</h3>
-                        <div class="code-actions">
-                            <button id="generateCodeBtn" class="btn-primary">Generate New Company Code</button>
-                            <input type="text" id="codeInput" placeholder="Enter code">
-                            <input type="text" id="employeeIdInput" placeholder="Enter employee ID">
-                            <button id="useCodeBtn" class="btn-primary">Use Code</button>
-                        </div>
-                        <div id="codeStatus"></div>
-                        <div class="code-list">
-                            <h4>Active Company Codes</h4>
-                            <div id="activeCodesList"></div>
-                        </div>
-                    </div>
-                    <div class="card file-upload-section">
-                        <h2>Upload Excel File</h2>
-                        <div class="assignment-options">
-                            <label>
-                                <input type="radio" name="assignmentOption" value="leastLeads" checked> 
-                                Assign to employee with least leads (default)
-                            </label>
-                            <br>
-                            <label>
-                                <input type="radio" name="assignmentOption" value="selectEmployee"> 
-                                Select specific employee
-                            </label>
-                            <select id="employeeSelect" disabled>
-                                <option value="">Select an employee</option>
-                                <!-- Options will be populated dynamically -->
-                            </select>
-                        </div>
-                        <div id="drop-area">
-                            <p>Drag and drop an Excel file here, or click to select a file</p>
-                            <input type="file" id="file-input" accept=".xlsx, .xls">
-                        </div>
-                        <button id="upload-button" disabled>Upload to an employee</button>
-                        <div id="result"></div>
-                    </div>
-                    <div id="employeeLeadsDashboard" class="card">
-                        <h3>Employee Leads Dashboard</h3>
-                        <button id="fetchLeadsDataBtn" class="btn-primary">Fetch Leads Data</button>
-                        <div id="leadsLoadingIndicator" style="display: none;">Loading...</div>
-                        <div id="employeeLeadsContent"></div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+        <section>
+            <h2>Active Codes</h2>
+            <div id="activeCodesList">Loading active codes...</div>
+        </section>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.799.0/aws-sdk.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script>
         let username = '';
-        const API_ENDPOINT = 'https://ngipui9qcg.execute-api.us-east-1.amazonaws.com/dev';
+        const API_ENDPOINT = 'https://028fsljya7.execute-api.us-east-1.amazonaws.com/dev';
 
         async function callAPI(path, method, payload = null) {
             const url = `${API_ENDPOINT}${path}`;
             const options = {
-                method: method,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                method,
+                headers: { 'Content-Type': 'application/json' },
             };
-
             if (payload) {
                 options.body = JSON.stringify(payload);
             }
 
+            console.log('Calling API:', { url, method, payload });
+
             try {
                 const response = await fetch(url, options);
                 const data = await response.json();
+
                 if (!response.ok) {
                     throw new Error(data.message || 'API call failed');
                 }
@@ -1166,514 +211,146 @@
                 throw error;
             }
         }
-
-        async function fetchEmployeeData() {
-            try {
-                const data = await callAPI('/getEmployeeData', 'GET');
-                
-                // Populate the table
-                const tableBody = document.getElementById('employeeData');
-                tableBody.innerHTML = ''; // Clear existing data
-                data.forEach(employee => {
-                    const row = tableBody.insertRow();
-                    row.insertCell(0).textContent = employee.name;
-                    row.insertCell(1).textContent = employee.xp;
-                    row.insertCell(2).textContent = employee.engagement;
-                });
-            } catch (error) {
-                console.error('Error fetching employee data:', error);
-                // Display error message to the user
-                const tableBody = document.getElementById('employeeData');
-                const errorRow = tableBody.insertRow();
-                const errorCell = errorRow.insertCell();
-                errorCell.colSpan = 3;
-                errorCell.className = 'error-message';
-                errorCell.textContent = 'Error loading employee data. Please try again later.';
-            }
-        }
-
         async function generateCompanyCode() {
             const generateCodeBtn = document.getElementById('generateCodeBtn');
-            addLoadingState(generateCodeBtn);
+            addLoadingState(generateCodeBtn); // Add loader to the button
+
             try {
-                const response = await callAPI('/generateCode', 'POST', { employerId: username });
-                if (response.code) {
-                    document.getElementById('codeStatus').textContent = `New code generated: ${response.code}`;
-                    fetchActiveCodes();
-                } else {
-                    document.getElementById('codeStatus').textContent = 'Failed to generate company code';
+                if (!username) {
+                    throw new Error('Username is missing. Please ensure you are logged in.');
                 }
+
+                const response = await callAPI(`/employer-codes?operation=generate&username=${username}`, 'POST');
+                // Optionally update a response message or log the generated code
+                console.log(`New code generated: ${response.code}`);
+                await fetchActiveCodes(); // Refresh the active codes list dynamically
             } catch (error) {
-                document.getElementById('codeStatus').textContent = 'Error generating company code: ' + error.message;
+                console.error('Error generating company code:', error.message);
             } finally {
-                removeLoadingState(generateCodeBtn);
+                removeLoadingState(generateCodeBtn); // Remove loader after completion
             }
         }
-        async function useCode() {
-            const useCodeBtn = document.getElementById('useCodeBtn');
-            addLoadingState(useCodeBtn);
-            const code = document.getElementById('codeInput').value;
-            const employeeId = document.getElementById('employeeIdInput').value;
-            try {
-                const response = await callAPI('/useCode', 'POST', { code, employeeId });
-                document.getElementById('codeStatus').textContent = response.message;
-            } catch (error) {
-                document.getElementById('codeStatus').textContent = 'Error using code: ' + error.message;
-            } finally {
-                removeLoadingState(useCodeBtn);
-            }
-        }
+
         async function fetchActiveCodes() {
+            const activeCodesList = document.getElementById('activeCodesList');
+            activeCodesList.innerHTML = '<p>Loading active codes...</p>'; // Show a loading message
+
             try {
-                const response = await callAPI(`/employercode?employerId=${username}`, 'GET');
-                const activeCodesList = document.getElementById('activeCodesList');
-                activeCodesList.innerHTML = '';
-                response.codes.forEach(code => {
-                    const codeItem = document.createElement('div');
-                    codeItem.className = 'code-item';
-                    codeItem.innerHTML = `
-                        <span>${code.code} (Expires: ${new Date(code.expiresAt).toLocaleString()})</span>
-                        <button onclick="deleteCode('${code.code}')">Delete</button>
-                    `;
-                    activeCodesList.appendChild(codeItem);
-                });
-            } catch (error) {
-                console.error('Error fetching active codes:', error);
-            }
-        }
-        async function deleteCode(code) {
-            try {
-                await callAPI('/deleteCode', 'DELETE', { code, employerId: username });
-                fetchActiveCodes();
-            } catch (error) {
-                console.error('Error deleting code:', error);
-            }
-        }
+                const response = await callAPI(`/employer-codes?operation=fetch&username=${username}`, 'GET');
+                activeCodesList.innerHTML = ''; // Clear existing content
 
-        const dropArea = document.getElementById('drop-area');
-        const fileInput = document.getElementById('file-input');
-        const uploadButton = document.getElementById('upload-button');
-        const resultDiv = document.getElementById('result');
-        let jsonData = null;
-
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-            dropArea.addEventListener(eventName, preventDefaults, false);
-        });
-
-        function preventDefaults(e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-
-        ['dragenter', 'dragover'].forEach(eventName => {
-            dropArea.addEventListener(eventName, highlight, false);
-        });
-
-        ['dragleave', 'drop'].forEach(eventName => {
-            dropArea.addEventListener(eventName, unhighlight, false);
-        });
-
-        function highlight() {
-            dropArea.classList.add('highlight');
-        }
-
-        function unhighlight() {
-            dropArea.classList.remove('highlight');
-        }
-
-        dropArea.addEventListener('drop', handleDrop, false);
-        fileInput.addEventListener('change', handleFileSelect, false);
-        dropArea.addEventListener('click', () => fileInput.click());
-        uploadButton.addEventListener('click', uploadToAPI);
-
-        function handleDrop(e) {
-            const dt = e.dataTransfer;
-            const files = dt.files;
-            handleFiles(files);
-        }
-
-        function handleFileSelect(e) {
-            const files = e.target.files;
-            handleFiles(files);
-        }
-
-        function handleFiles(files) {
-            const file = files[0];
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const data = new Uint8Array(e.target.result);
-                const workbook = XLSX.read(data, {type: 'array'});
-                const firstSheetName = workbook.SheetNames[0];
-                const worksheet = workbook.Sheets[firstSheetName];
-                jsonData = XLSX.utils.sheet_to_json(worksheet);
-                resultDiv.textContent = JSON.stringify(jsonData, null, 2);
-                uploadButton.disabled = false;
-            };
-            reader.readAsArrayBuffer(file);
-        }
-        async function fetchEmployees() {
-            try {
-                const response = await fetch(`https://xxat64faik.execute-api.us-east-1.amazonaws.com/dev/getEmployees?cognito_id=${username}`);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-                const employeeSelect = document.getElementById('employeeSelect');
-                employeeSelect.innerHTML = '<option value="">Select an employee</option>';
-                
-                if (data && data.data && Array.isArray(data.data.Employees)) {
-                    data.data.Employees.forEach(employeeId => {
-                        if (employeeId !== username) { // Exclude the current user (employer)
-                            const option = document.createElement('option');
-                            option.value = employeeId;
-                            option.textContent = employeeId; // Use the Cognito ID as both value and text
-                            employeeSelect.appendChild(option);
-                        }
+                if (response.codes && response.codes.length > 0) {
+                    response.codes.forEach((code) => {
+                        const codeItem = document.createElement('div');
+                        codeItem.className = 'code-item';
+                        codeItem.innerHTML = `
+                            <span>${code.code} (Expires: ${new Date(code.expiresAtReadable).toLocaleString()})</span>
+                            <button class="btn-primary" onclick="deleteCode('${code.code}')">Delete</button>
+                        `;
+                        activeCodesList.appendChild(codeItem);
                     });
                 } else {
-                    console.error('Invalid employee data received:', data);
+                    activeCodesList.innerHTML = '<p>No active codes available.</p>';
                 }
             } catch (error) {
-                console.error('Error fetching employees:', error);
+                console.error('Error fetching active codes:', error);
+                activeCodesList.innerHTML = '<p>Error loading active codes. Please try again later.</p>';
             }
         }
-        document.querySelectorAll('input[name="assignmentOption"]').forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                const employeeSelect = document.getElementById('employeeSelect');
-                if (e.target.value === 'selectEmployee') {
-                    employeeSelect.disabled = false;
-                    employeeSelect.style.display = 'block';
-                    fetchEmployees(); // Fetch employees when this option is selected
-                } else {
-                    employeeSelect.disabled = true;
-                    employeeSelect.style.display = 'none';
-                }
-            });
-        });
 
-        async function uploadToAPI() {
-            const uploadButton = document.getElementById('upload-button');
-            addLoadingState(uploadButton);
-            if (!jsonData) {
-                alert('Please select an Excel file first.');
-                removeLoadingState(uploadButton);
-                return;
+        async function deleteCode(code) {
+            const confirmDelete = confirm(`Are you sure you want to delete the code: ${code}?`);
+            if (!confirmDelete) {
+                return; // Exit if the user cancels
             }
-
-            const apiUrl = 'https://xxat64faik.execute-api.us-east-1.amazonaws.com/dev/processLeads';
-
-            if (!username) {
-                alert('Username not found. Please ensure you are logged in.');
-                return;
-            }
-
-            const assignmentOption = document.querySelector('input[name="assignmentOption"]:checked').value;
-            const selectedEmployeeId = document.getElementById('employeeSelect').value;
-
-            if (assignmentOption === 'selectEmployee' && !selectedEmployeeId) {
-                alert('Please select an employee.');
-                return;
-            }
-
-            const payload = {
-                cognito_id: username,
-                leads: jsonData.map(lead => ({
-                    last: lead.Last || '',
-                    first_name: lead.First || '',
-                    number: lead['#'] || '',
-                    street: lead.St || '',
-                    apartment: lead.Apt || '',
-                    city: lead.City || '',
-                    state: lead.State || '',
-                    zip: lead.Zip || '',
-                    pass1: lead['Pass 1'] || '',
-                    pass2: lead['Pass 2'] || '',
-                    pass3: lead['Pass 3'] || ''
-                })),
-                assignmentOption: assignmentOption,
-                selectedEmployeeId: assignmentOption === 'selectEmployee' ? selectedEmployeeId : null
-            };
 
             try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
-                }
-
-                const result = await response.json();
-                resultDiv.textContent = JSON.stringify(result, null, 2);
+                await callAPI(`/employer-codes?operation=delete&code=${code}`, 'DELETE');
+                console.log(`Code ${code} deleted successfully.`);
+                await fetchActiveCodes(); // Refresh the active codes list dynamically
             } catch (error) {
-                console.error('Error:', error);
-                resultDiv.textContent = 'Error: ' + error.message;
-                alert('An error occurred. Please check the console for more details.');
-            } finally {
-                removeLoadingState(uploadButton);
+                console.error('Error deleting company code:', error.message);
             }
         }
-            
 
-        // Tab switching functionality
-        document.querySelectorAll('.nav-tabs button').forEach(button => {
-            button.addEventListener('click', () => {
-                document.querySelectorAll('.nav-tabs button').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                button.classList.add('active');
-                document.getElementById(button.getAttribute('data-tab')).classList.add('active');
-
-                // Fetch employee data when switching to the employee tab
-                if (button.getAttribute('data-tab') === 'employee') {
-                    fetchEmployeeData();
-                }
-            });
-        });
-
-        window.addEventListener('load', async () => {
-            // Simulate loading time (you can adjust this or remove it if you're loading real data)
-            setTimeout(() => {
-                document.querySelector('.preloader').classList.add('fade-out');
-                document.querySelector('.dashboard').classList.add('fade-in');
-                setTimeout(() => {
-                    document.querySelector('.preloader').style.display = 'none';
-                }, 500);
-            }, 2000); // Increased to 3 seconds to show off the animation, adjust as needed
-            if (document.querySelector('.nav-tabs button.active').getAttribute('data-tab') === 'employee') {
-                await fetchEmployeeData();
+        function addLoadingState(button) {
+            button.disabled = true; // Disable the button to prevent multiple clicks
+            const spinner = button.querySelector('.spinner');
+            if (spinner) {
+                spinner.style.display = 'inline-block'; // Show the spinner
             }
-        });
-
-        // Parse JWT token and display username
-        document.addEventListener("DOMContentLoaded", function() {
-            const token = localStorage.getItem('idToken');
-            if (token) {
-                const decodedToken = parseJwt(token);
-                username = decodedToken['cognito:username']; // Use 'cognito:username' for the display name
-                document.getElementById('username').textContent = username;
-            } else {
-                window.location.href = '../login/';
+            const buttonText = button.querySelector('.button-text');
+            if (buttonText) {
+                buttonText.style.display = 'none'; // Hide the button text
             }
+        }
 
-            const generateCodeBtn = document.getElementById('generateCodeBtn');
-            const useCodeBtn = document.getElementById('useCodeBtn');
-            
-            if (generateCodeBtn) {
-                generateCodeBtn.addEventListener('click', generateCompanyCode);
+        function removeLoadingState(button) {
+            button.disabled = false; // Enable the button
+            const spinner = button.querySelector('.spinner');
+            if (spinner) {
+                spinner.style.display = 'none'; // Hide the spinner
             }
-            
-            if (useCodeBtn) {
-                useCodeBtn.addEventListener('click', useCode);
+            const buttonText = button.querySelector('.button-text');
+            if (buttonText) {
+                buttonText.style.display = 'inline'; // Show the button text
             }
-
-            // Fetch active codes when the admin tab is opened
-            document.querySelectorAll('.nav-tabs button').forEach(button => {
-            button.addEventListener('click', () => {
-                switchTab(button.getAttribute('data-tab'));
-                if (button.getAttribute('data-tab') === 'admin') {
-                    fetchActiveCodes();
-                    fetchEmployees(); // Fetch employees when admin tab is opened
-                }
-            });
-        });
-            const dateRangeButton = document.getElementById('dateRangeButton');
-            dateRangeButton.textContent = getCurrentWeekDateRange();
-            const morePerformersBtn = document.getElementById('morePerformersBtn');
-            if (morePerformersBtn) {
-                morePerformersBtn.addEventListener('click', showMorePerformers);
-            }
-
-            // Update the existing tab switching functionality
-            document.querySelectorAll('.nav-tabs button').forEach(button => {
-                button.addEventListener('click', () => {
-                    switchTab(button.getAttribute('data-tab'));
-                });
-            });
-        });
-
+        }
 
         function parseJwt(token) {
             const base64Url = token.split('.')[1];
             const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
+            const jsonPayload = decodeURIComponent(
+                atob(base64)
+                    .split('')
+                    .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+                    .join('')
+            );
             return JSON.parse(jsonPayload);
         }
 
-        function switchTab(tabId) {
-            const allTabs = document.querySelectorAll('.tab-content');
-            const allButtons = document.querySelectorAll('.nav-tabs button');
-            
-            // First, start the fade-out for all tabs
-            allTabs.forEach(tab => {
-                tab.style.opacity = '0';
-                tab.style.transform = 'translateY(20px)';
-            });
+        document.addEventListener('DOMContentLoaded', async () => {
+            const token = localStorage.getItem('idToken');
+            if (token) {
+                try {
+                    const decodedToken = parseJwt(token);
+                    username = decodedToken['cognito:username'];
+                    console.log('Decoded username:', username); // Debugging log
+                    document.getElementById('username').textContent = username;
 
-            // Remove active class from all buttons
-            allButtons.forEach(btn => btn.classList.remove('active'));
-
-            // Add active class to the clicked button
-            const targetButton = document.querySelector(`.nav-tabs button[data-tab="${tabId}"]`);
-            if (targetButton) {
-                targetButton.classList.add('active');
-            }
-
-            // After a short delay, update the active tab and start the fade-in
-            setTimeout(() => {
-                allTabs.forEach(tab => tab.classList.remove('active'));
-                const targetTab = document.getElementById(tabId);
-                if (targetTab) {
-                    targetTab.classList.add('active');
-                    // Trigger reflow to ensure the transition applies
-                    void targetTab.offsetWidth;
-                    targetTab.style.opacity = '1';
-                    targetTab.style.transform = 'translateY(0)';
+                    await fetchActiveCodes(); // Fetch the list of active codes
+                } catch (error) {
+                    console.error('Error decoding token:', error);
+                    document.getElementById('activeCodesList').innerHTML = '<p>Invalid token. Please log in again.</p>';
                 }
-
-                if (tabId === 'employee') {
-                    fetchEmployeeData();
-                    createEmployeeBreakdownChart();
-                }
-            }, 300); // This delay should match the transition duration
-        }
-        function showMorePerformers() {
-            switchTab('employee');
-        }
-        function createEmployeeBreakdownChart() {
-            const ctx = document.getElementById('employeeBreakdowns').getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Junior', 'Mid-level', 'Senior', 'Management'],
-                    datasets: [{
-                        data: [30, 45, 20, 5],
-                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    title: {
-                        display: true,
-                        text: 'Employee Level Distribution'
-                    }
-                }
-            });
-        }
-        function getCurrentWeekDateRange() {
-            const today = new Date();
-            const currentDay = today.getDay(); // 0 (Sunday) to 6 (Saturday)
-            const diff = today.getDate() - currentDay + (currentDay === 0 ? -6 : 1); // Adjust when day is Sunday
-            
-            const monday = new Date(today.setDate(diff));
-            const friday = new Date(today.setDate(diff + 4));
-            
-            const formatDate = (date) => {
-                const month = date.getMonth() + 1; // getMonth() returns 0-11
-                const day = date.getDate();
-                return `${month}/${day}`;
-            };
-            
-            return `${formatDate(monday)} - ${formatDate(friday)}`;
-        }
-        function addLoadingState(button) {
-            button.disabled = true;
-            button.classList.add('btn-loading');
-            const spinner = document.createElement('span');
-            spinner.className = 'spinner';
-            button.appendChild(spinner);
-        }
-
-        function removeLoadingState(button) {
-            button.disabled = false;
-            button.classList.remove('btn-loading');
-            const spinner = button.querySelector('.spinner');
-            if (spinner) {
-                button.removeChild(spinner);
+            } else {
+                console.warn('No token found. Skipping API calls.');
+                document.getElementById('username').textContent = 'Not logged in';
             }
-        }
-        document.getElementById('fetchLeadsDataBtn').addEventListener('click', fetchEmployeeLeadsData);
-
-async function fetchEmployeeLeadsData() {
-    const loadingIndicator = document.getElementById('leadsLoadingIndicator');
-    loadingIndicator.style.display = 'block';
-
-    try {
-        const response = await fetch(`https://wm8mq4e5oi.execute-api.us-east-1.amazonaws.com/dev/getLeadActions?employer_cognito_id=${username}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        displayEmployeeLeadsData(data.employees);
-    } catch (error) {
-        console.error('Error fetching employee leads data:', error);
-        alert('Error fetching leads data. Please try again.');
-    } finally {
-        loadingIndicator.style.display = 'none';
-    }
-}
-
-function displayEmployeeLeadsData(employees) {
-    const dashboardContent = document.getElementById('employeeLeadsContent');
-    dashboardContent.innerHTML = '';
-
-    employees.forEach(employee => {
-        const employeeSection = document.createElement('div');
-        employeeSection.className = 'employee-section';
-        employeeSection.textContent = employee.email;
-        dashboardContent.appendChild(employeeSection);
-
-        const leadsContainer = document.createElement('div');
-        leadsContainer.className = 'leads-container';
-        dashboardContent.appendChild(leadsContainer);
-
-        employee.Leads.forEach(lead => {
-            const leadElement = document.createElement('div');
-            leadElement.className = 'lead';
-            leadElement.innerHTML = `
-                <div class="lead-header">
-                    <span class="lead-name">${lead.name || 'Unnamed Lead'}</span>
-                    <span class="lead-id">ID: ${lead.leadId}</span>
-                </div>
-                <div class="lead-contact">Contact: ${lead.contact || 'N/A'}</div>
-                <div class="pass-statuses">
-                    <span class="pass-status ${lead.pass1 ? 'completed' : 'not-completed'}">Pass 1: ${lead.pass1 || 'Not Completed'}</span>
-                    <span class="pass-status ${lead.pass2 ? 'completed' : 'not-completed'}">Pass 2: ${lead.pass2 || 'Not Completed'}</span>
-                    <span class="pass-status ${lead.pass3 ? 'completed' : 'not-completed'}">Pass 3: ${lead.pass3 || 'Not Completed'}</span>
-                </div>
-            `;
-
-            if (lead.actions && lead.actions.length > 0) {
-                const actionsElement = document.createElement('div');
-                actionsElement.className = 'actions';
-                actionsElement.innerHTML = '<strong>Actions:</strong><br>' + 
-                    lead.actions.map(action => `${action.action} - ${new Date(action.timestamp).toLocaleString()}`).join('<br>');
-                leadElement.appendChild(actionsElement);
-            }
-
-            leadsContainer.appendChild(leadElement);
         });
-    });
-}
 
-// Update the existing tab switching functionality to include the new dashboard
-document.querySelectorAll('.nav-tabs button').forEach(button => {
-    button.addEventListener('click', () => {
-        switchTab(button.getAttribute('data-tab'));
-        if (button.getAttribute('data-tab') === 'admin') {
-            fetchActiveCodes();
-            fetchEmployees();
-            // The employee leads data will be fetched when the user clicks the "Fetch Leads Data" button
+        function signOut() {
+            const button = document.getElementById('signOutButton');
+            setLoading(button, true);
+            try {
+                localStorage.removeItem('idToken');
+                username = '';
+                window.location.href = '../login/index.html';
+            } catch (error) {
+                console.error('Error during sign-out:', error);
+                setLoading(button, false);
+            }
         }
-    });
-});
+
+        function setLoading(button, isLoading) {
+            if (isLoading) {
+                button.classList.add('loading');
+                button.disabled = true;
+            } else {
+                button.classList.remove('loading');
+                button.disabled = false;
+            }
+        }
     </script>
 </body>
 </html>

@@ -119,6 +119,24 @@
         .forgot-password:hover {
             color: white;
         }
+        .no-account {
+            display: inline-block;
+            margin-top: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s ease all;
+        }
+        .no-account-signup {
+            display: inline-block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s ease all;
+        }
+        .no-account-signup:hover {
+            color: white;
+        }
 
         #loginForm, #resetForm, #newPasswordForm {
             display: none;
@@ -210,7 +228,7 @@
                 const loginResult = await cognito.initiateAuth(authParams).promise();
                 const idToken = loginResult.AuthenticationResult.IdToken;
                 localStorage.setItem('idToken', idToken);
-                window.location.href = '../home/';
+                window.location.href = '../home/index.html';
             } catch (error) {
                 showError('loginError', error.message);
             } finally {
@@ -314,7 +332,8 @@
                 <span class="button-text">Log In</span>
                 <div class="spinner"></div>
             </button>
-            <a href="#" class="forgot-password" onclick="showForm('resetForm')">Forgot Password?</a>
+            <a href="#" class="forgot-password" onclick="showForm('resetForm')">Forgot Password?</a><br>
+            <p class="no-account">No account? <a href="../signup/index.html" class="no-account-signup">Sign up</a></p>
         </form>
         
         <form id="resetForm" onsubmit="forgotPassword(event)">

@@ -347,10 +347,38 @@
       margin-bottom: 40vh;       /* Add more space below image-4 */
     }
     }
+    .top-right-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10; /* Ensure it stays above other elements */
+    }
+
+    .employer-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(90deg, #6c36b7, #7d88ea);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .employer-button:hover {
+      background: linear-gradient(90deg, #8746b3, #6674f1);
+      color: rgba(255, 255, 255, 0.9);
+    }
 
   </style>
 </head>
 <body>
+  <div class="top-right-button">
+    <a href="./employer-platform/" class="employer-button">Go to employer platform</a>
+  </div>
   <div class="overlay-half"></div>
 
   <div class="main">
